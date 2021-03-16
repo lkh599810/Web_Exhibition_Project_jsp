@@ -10,7 +10,8 @@
    <children>
       <Label prefHeight="25.0" prefWidth="286.0" text="씬빌더로 작성된 javafx 입니다">
          <font>
-            <Font size="20.0" />
+            <Font size="20.0" />ㅇㅇㅇ
+            
          </font>
       </Label>
       <Button mnemonicParsing="false" text="확인" />
