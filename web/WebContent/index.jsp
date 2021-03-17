@@ -8,5 +8,10 @@
 </head>
 <body>
 
+		<script type="text/javascript">
+		
+			location.href="main.jsp";
+		</script>
+
 </body>
 </html>
