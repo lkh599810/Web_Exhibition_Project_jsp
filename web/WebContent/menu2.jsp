@@ -13,17 +13,7 @@
  	body{
  		background-color: black;
   	}
- 	a{
- 		text-decoration: none;
- 		color: #7b7579;
- 	}
- 	a:hover{
- 		color: white;
- 	}
- 	li{
-		list-style-type: none;
- 	}
- 	
+
  	
  	header{
  		width: 100%;
@@ -46,11 +36,18 @@
 		font-family: "¸¼Àº°íµñ";
  	}
  	#menu li{
+		list-style-type: none;
  		display: inline-block;
  		float: left;
 	}
 	
-	
+	#menu li a{
+ 		text-decoration: none;
+ 		color: #7b7579;
+ 	}
+ 	#menu li a:hover{
+ 		color: white;
+ 	}
 	#member_menu{
 		margin : 30px 20px 0 0;
 		float: right;
@@ -60,7 +57,11 @@
 		margin: 0 10px;
 		color: #90827b;
 	}
-	#member_menu li a:hover{ font-weight: bold;}
+	#member_menu li a:hover{ 
+		color: #90827b;
+		font-weight: bold;
+	}
+	
 	#main_menu{
 		padding-top: 70px;
 
