@@ -24,7 +24,6 @@ create table member(
     id varchar(20) primary key not null,  [pk]
     pw varchar(30) not null,
     userName varchar(20) not null,
-    userGender varchar(10) not null,
     userEmail varchar(20) not null,
     userPhone varchar(30) not null
 );
