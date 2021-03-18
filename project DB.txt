@@ -1,0 +1,55 @@
+create database project
+
+전시회 db
+create table exhibition(
+   exNum int primary key not null,  [pk]
+    exName varchar(50) not null,
+    exPost varchar(30) not null,
+    exPoto1 varchar(50),
+    exPoto2 varchar(50),
+    exPoto3 varchar(50),
+    exStart varchar(30) not null,
+    exEnd varchar(30) not null,
+    exContent varchar(3000) not null,
+    exPrice int not null,
+    exSold int not null,
+    exMap varchar(100),
+    exLike boolean not null,
+    exCondition int not null,
+    exGrade int not null
+);
+
+회원db
+create table member(
+    id varchar(20) primary key not null,  [pk]
+    pw varchar(30) not null,
+    userName varchar(20) not null,
+    userGender varchar(10) not null,
+    userEmail varchar(20) not null,
+    userPhone varchar(30) not null
+);
+
+구매 db
+create table buy(
+    buyNum [[pk]]
+    buyUserID varchar(20) primary key not null,  [[fk]]
+    buyExNum int not null,			[[fk]]
+    buyCount int not null,
+    buyPrice int not null,
+    buyDate varchar(30) not null,
+    buyUse int not null,
+    buyUseDate varchar(30) not null
+);
+
+
+후기db
+create table review(
+    reviewNum int primary key not null,
+    reviewExNum int not null,
+    reviewUserID varchar(30) not null,
+    reviewUseDate varchar(30) not null,
+    reviewContent varchar(2000) not null,
+    reviewFile varchar(50),
+    reviewGrade int not null,
+    reviewDate varchar(50) not null
+);

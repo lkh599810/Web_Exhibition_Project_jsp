@@ -85,6 +85,27 @@
 			
 		
 		}
+		.small4{
+		
+			margin:auto ;
+			float: left;
+			margin: 20px 10px 10px 40px; 
+		
+		}
+		
+		.small5{
+			margin:auto ;
+			float: left;
+			margin: 20px 10px 10px 40px; 
+		
+		}
+		
+		.small6{
+			margin:auto ;
+			float: right;
+			margin: 20px 10px 10px 40px; 
+		
+		}
 		
 		
 	</style>
@@ -95,7 +116,7 @@
 </head>
 <body>
 	
-	<%@include file="menu.jsp" %>
+	<%@include file="menu.jsp"%>
 	
 	<div class="container1">
 		
@@ -118,34 +139,40 @@
 	
 		<div class="small1">
 			<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
-			<p>전시회1</p>
+			<p>모네</p>
+			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
 		</div>
 		
 		<div class="small2">
-			<img alt="" src="images/monet2.jpg" id="monet2" width="250px" height="250px">
-			<p>전시회2</p>
+			<img alt="" src="images/delight1.jpg" id="delight1" width="250px" height="250px">
+			<p>기쁨</p>
+			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
 		</div>
 		
 		
 		<div class="small3">
-			<img alt="" src="images/pulitzer1.jpg" id="pulitzer" width="250px" height="250px">
-			<p>전시회3</p>
+			<img alt="" src="images/pulitzer1.jpg" id="pulitzer1" width="250px" height="250px">
+			<p>퓰리처</p>
+			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
 		</div>
 		
-		<div class="small3">
-			<img alt="" src="images/pulitzer1.jpg" id="pulitzer" width="250px" height="250px">
-			<p>전시회2</p>
+		<div class="small4">
+			<img alt="" src="images/yumi1.jpg" id="yumi1" width="250px" height="250px">
+			<p>유미의 세포들</p>
+			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
 		</div>
 		
-		<div class="small3">
-			<img alt="" src="images/pulitzer1.jpg" id="pulitzer" width="250px" height="250px">
-			<p>전시회2</p>
+		<div class="small5">
+			<img alt="" src="images/teamlab1.jpg" id="teamlab1" width="250px" height="250px">
+			<p>팀랩</p>
+			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
 		</div>
 			
 
-		<div class="small1">
-			<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
-			<p>전시회2</p>		
+		<div class="small6">
+			<img alt="" src="images/trip1.jpg" id="trip1" width="250px" height="250px">
+			<p>여행</p>
+			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>		
 		</div>		
 	
 		
