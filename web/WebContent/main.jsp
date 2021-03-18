@@ -85,6 +85,7 @@
 			
 		
 		}
+<<<<<<< HEAD
 		.small4{
 		
 			margin:auto ;
@@ -173,6 +174,69 @@
 			<img alt="" src="images/trip1.jpg" id="trip1" width="250px" height="250px">
 			<p>여행</p>
 			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>		
+=======
+		
+		
+	</style>
+
+	
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<%@include file="menu.jsp" %>
+	
+	<div class="container1">
+		
+		
+		<div class="big">
+		
+		</div>
+		
+		
+		<p></p>
+		<p class="description">Lastbookstore 전시회입니다.</p>
+		<p class="description">책에대한 관심이 사라진 현대의 모습</p>
+		
+	</div>
+	
+	
+	
+	<div class="container2">
+	
+	
+		<div class="small1">
+			<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
+			<p>전시회1</p>
+		</div>
+		
+		<div class="small2">
+			<img alt="" src="images/monet2.jpg" id="monet2" width="250px" height="250px">
+			<p>전시회2</p>
+		</div>
+		
+		
+		<div class="small3">
+			<img alt="" src="images/pulitzer1.jpg" id="pulitzer" width="250px" height="250px">
+			<p>전시회3</p>
+		</div>
+		
+		<div class="small3">
+			<img alt="" src="images/pulitzer1.jpg" id="pulitzer" width="250px" height="250px">
+			<p>전시회2</p>
+		</div>
+		
+		<div class="small3">
+			<img alt="" src="images/pulitzer1.jpg" id="pulitzer" width="250px" height="250px">
+			<p>전시회2</p>
+		</div>
+			
+
+		<div class="small1">
+			<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
+			<p>전시회2</p>		
+>>>>>>> branch 'master' of https://github.com/lkh599810/web
 		</div>		
 	
 		
