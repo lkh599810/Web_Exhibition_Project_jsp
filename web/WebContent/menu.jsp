@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +33,7 @@
  	#menu{
  		padding-left: 280px;
  		text-align: right;
-		font-family: "¸¼Àº°íµñ";
+		font-family: "ë§‘ì€ê³ ë”•";
  	}
  	#menu li{
 		list-style-type: none;
@@ -68,7 +67,7 @@
 
 	}
 	#main_menu li {
-		font-family:"³ª´®°íµñ";
+		font-family:"ë‚˜ëˆ”ê³ ë”•";
 		margin: 0 45px;
 		font-size: 20px;
 		font-weight: bold; 
@@ -115,7 +114,7 @@
 			</nav>
 			<div id="search">
 				<input type="text" id="keyword" placeholder="Search" class="form-control">
-				<button>°Ë»ö </button>
+				<button>ê²€ìƒ‰ </button>
 			</div>
 			
 		</div>
