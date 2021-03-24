@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 	<style type="text/css"> 
 	
@@ -14,7 +14,7 @@
 		body{
 			background-color :	#323232;
 			color : white;
-			font-family: "³ª´®°íµñ";
+			font-family: "ë‚˜ëˆ”ê³ ë”•";
 		}
 		section{
  			width: 1000px;
@@ -23,7 +23,7 @@
 			padding: 0px 20px;
 		}
 		
-		<%//¼­ºê¸Ş´º%>
+		<%//ì„œë¸Œë©”ë‰´%>
 		#sub_menu{
 			text-align: center;
 			float: left;
@@ -61,7 +61,7 @@
 		}
 		
 		
-		<%//¸ŞÀÎ¸Ş´º%>
+		<%//ë©”ì¸ë©”ë‰´%>
 		#userUpdate{
 			display:inline-block; 
 			width: 780px;
@@ -116,27 +116,27 @@
 	<%@include file = "menu.jsp" %> 
 	<section>
 		<nav id="sub_menu">
-			<h3>È¸¿øÁ¤º¸</h3>
+			<h3>íšŒì›ì •ë³´</h3>
 			<ul id="user_info">
-				<li><a href="userUpdate.jsp">	¦Å È¸¿ø¼öÁ¤</a></li>
-				<li><a href="userDelete.jsp"> ¦Å È¸¿øÅ»Åğ</a></li>
+				<li><a href="userUpdate.jsp">	â”– íšŒì›ìˆ˜ì •</a></li>
+				<li><a href="userDelete.jsp"> â”– íšŒì›íƒˆí‡´</a></li>
 			</ul>
-			<h3>Æ¼ÄÏÁ¤º¸</h3>
+			<h3>í‹°ì¼“ì •ë³´</h3>
 			<ul id="tic_info">
-				<li><a href="myTicket.jsp"> ¦Å ³ªÀÇ Æ¼ÄÏ </a></li>
-				<li><a href="myLike.jsp"> ¦Å ³ªÀÇ °ü½É</a></li>
+				<li><a href="myTicket.jsp"> â”– ë‚˜ì˜ í‹°ì¼“ </a></li>
+				<li><a href="myLike.jsp"> â”– ë‚˜ì˜ ê´€ì‹¬</a></li>
 			</ul>
 		</nav>
 	
 		<div class="container" id="userUpdate">
 		
-			<h2>È¸¿ø Å»Åğ</h2>
+			<h2>íšŒì› íƒˆí‡´</h2>
 			<hr width="700">
 			<div id="formm">
 				 <input type="text" id="id" placeholder="ID" readonly="readonly"> <br>
 				 <input type="password" id="pw" placeholder="PASSWORD"><br>
 				 
-				<input type="submit" value="Å»Åğ" id="submit">
+				<input type="submit" value="íƒˆí‡´" id="submit">
 			</div>
 		</div>
 		

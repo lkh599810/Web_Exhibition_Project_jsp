@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 	<style type="text/css"> 
 	
@@ -14,7 +14,7 @@
 		body{
 			background-color :	#323232;
 			color : white;
-			font-family: "³ª´®°íµñ";
+			font-family: "ë‚˜ëˆ”ê³ ë”•";
 		}
 		#sign{
  			width: 1000px;
@@ -87,7 +87,7 @@
 		<form action="#" method="post" onsubmit="">
 			
 			<div id="formm">
-				 <input type="text" id="id" placeholder="ID"> <button>Áßº¹È®ÀÎ</button> <br>
+				 <input type="text" id="id" placeholder="ID"> <button>ì¤‘ë³µí™•ì¸</button> <br>
 				 <input type="password" id="pw" placeholder="PASSWORD"><br>
 				 <input type="password" id="pw_check" placeholder="PASSWORD CHECK"><br>
 				<input type="text" id="name" placeholder="NAME"><br>
@@ -96,20 +96,20 @@
 			</div>
 			
 			<fieldset>
-				<legend>¼­ºñ½º ÀÌ¿ë¾à°ü µ¿ÀÇ</legend>
-				<p class="agree">Á¦ 1Àå ÃÑÄ¢ <br> <br>
-					Á¦ 1 Á¶(¸ñÀû)<br><br>
-					º» ¾à°üÀº ±¹°¡°ø°£Á¤º¸Æ÷ÅÐ À¥»çÀÌÆ®(ÀÌÇÏ "±¹°¡°ø°£Á¤º¸Æ÷ÅÐ")°¡ Á¦°øÇÏ´Â ¸ðµç ¼­ºñ½º(ÀÌÇÏ "¼­ºñ½º")ÀÇ ÀÌ¿ëÁ¶°Ç ¹× ÀýÂ÷, È¸¿ø°ú ±¹°¡°ø°£Á¤º¸Æ÷ÅÐÀÇ ±Ç¸®, ÀÇ¹«, Ã¥ÀÓ»çÇ×°ú ±âÅ¸ ÇÊ¿äÇÑ »çÇ×À» ±ÔÁ¤ÇÔÀ» ¸ñÀûÀ¸·Î ÇÕ´Ï´Ù.<br><br>
-					Á¦ 2 Á¶(¾à°üÀÇ È¿·Â°ú º¯°æ)<br><br>
-				1. ±¹°¡°ø°£Á¤º¸Æ÷ÅÐÀº ÀÌ¿ëÀÚ°¡ º» ¾à°ü ³»¿ë¿¡ µ¿ÀÇÇÏ´Â °æ¿ì, ±¹°¡°ø°£Á¤º¸Æ÷ÅÐÀÇ ¼­ºñ½º Á¦°ø ÇàÀ§ ¹× È¸¿øÀÇ ¼­ºñ½º »ç¿ë ÇàÀ§¿¡ º» ¾à°üÀÌ ¿ì¼±ÀûÀ¸·Î Àû¿ëµË´Ï´Ù. <br>
-				2. ±¹°¡°ø°£Á¤º¸Æ÷ÅÐÀº ¾à°üÀ» °³Á¤ÇÒ °æ¿ì, Àû¿ëÀÏÀÚ ¹× °³Á¤»çÀ¯¸¦ ¸í½ÃÇÏ¿© ÇöÇà¾à°ü°ú ÇÔ²² ±¹°¡°ø°£Á¤º¸Æ÷ÅÐÀÇ ÃÊ±âÈ­¸é¿¡ ±× Àû¿ëÀÏ 7ÀÏ ÀÌÀüºÎÅÍ Àû¿ë ÀüÀÏ±îÁö °øÁöÇÕ´Ï´Ù. ´Ü, È¸¿ø¿¡ ºÒ¸®ÇÏ°Ô ¾à°ü³»¿ëÀ» º¯°æÇÏ´Â °æ¿ì¿¡´Â ÃÖ¼ÒÇÑ 30ÀÏ ÀÌ»óÀÇ »çÀü À¯¿¹±â°£À» µÎ°í °øÁöÇÕ´Ï´Ù. ÀÌ °æ¿ì ±¹°¡°ø°£Á¤º¸Æ÷ÅÐÀº °³Á¤ Àü ³»¿ë°ú °³Á¤ ÈÄ ³»¿ëÀ» ¸íÈ®ÇÏ°Ô ºñ±³ÇÏ¿© È¸¿øÀÌ ¾Ë±â ½±µµ·Ï Ç¥½ÃÇÕ´Ï´Ù.<br>
-				3. º¯°æµÈ ¾à°üÀº ±¹°¡°ø°£Á¤º¸Æ÷ÅÐ È¨ÆäÀÌÁö¿¡ °øÁöÇÏ°Å³ª e-mailÀ» ÅëÇØ È¸¿ø¿¡°Ô °øÁöÇÏ¸ç, ¾à°üÀÇ ºÎÄ¢¿¡ ¸í½ÃµÈ ³¯ºÎÅÍ ±× È¿·ÂÀÌ ¹ß»ýµË´Ï´Ù. È¸¿øÀÌ º¯°æµÈ ¾à°ü¿¡ µ¿ÀÇÇÏÁö ¾Ê´Â °æ¿ì, È¸¿øÀº º»ÀÎÀÇ È¸¿øµî·ÏÀ» Ãë¼Ò(È¸¿øÅ»Åð)ÇÒ ¼ö ÀÖÀ¸¸ç, º¯°æµÈ ¾à°üÀÇ È¿·Â ¹ß»ýÀÏ·ÎºÎÅÍ 7ÀÏ ÀÌ³»¿¡ °ÅºÎÀÇ»ç¸¦ Ç¥½ÃÇÏÁö ¾Æ´ÏÇÏ°í ¼­ºñ½º¸¦ °è¼Ó »ç¿ëÇÒ °æ¿ì´Â ¾à°ü º¯°æ¿¡ ´ëÇÑ µ¿ÀÇ·Î °£ÁÖµË´Ï´Ù.<br>
-					<br> ÀÌÇÏ»ý·« <br>
+				<legend>ì„œë¹„ìŠ¤ ì´ìš©ì•½ê´€ ë™ì˜</legend>
+				<p class="agree">ì œ 1ìž¥ ì´ì¹™ <br> <br>
+					ì œ 1 ì¡°(ëª©ì )<br><br>
+					ë³¸ ì•½ê´€ì€ êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ ì›¹ì‚¬ì´íŠ¸(ì´í•˜ "êµ­ê°€ê³µê°„ì •ë³´í¬í„¸")ê°€ ì œê³µí•˜ëŠ” ëª¨ë“  ì„œë¹„ìŠ¤(ì´í•˜ "ì„œë¹„ìŠ¤")ì˜ ì´ìš©ì¡°ê±´ ë° ì ˆì°¨, íšŒì›ê³¼ êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ì˜ ê¶Œë¦¬, ì˜ë¬´, ì±…ìž„ì‚¬í•­ê³¼ ê¸°íƒ€ í•„ìš”í•œ ì‚¬í•­ì„ ê·œì •í•¨ì„ ëª©ì ìœ¼ë¡œ í•©ë‹ˆë‹¤.<br><br>
+					ì œ 2 ì¡°(ì•½ê´€ì˜ íš¨ë ¥ê³¼ ë³€ê²½)<br><br>
+				1. êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ì€ ì´ìš©ìžê°€ ë³¸ ì•½ê´€ ë‚´ìš©ì— ë™ì˜í•˜ëŠ” ê²½ìš°, êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ì˜ ì„œë¹„ìŠ¤ ì œê³µ í–‰ìœ„ ë° íšŒì›ì˜ ì„œë¹„ìŠ¤ ì‚¬ìš© í–‰ìœ„ì— ë³¸ ì•½ê´€ì´ ìš°ì„ ì ìœ¼ë¡œ ì ìš©ë©ë‹ˆë‹¤. <br>
+				2. êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ì€ ì•½ê´€ì„ ê°œì •í•  ê²½ìš°, ì ìš©ì¼ìž ë° ê°œì •ì‚¬ìœ ë¥¼ ëª…ì‹œí•˜ì—¬ í˜„í–‰ì•½ê´€ê³¼ í•¨ê»˜ êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ì˜ ì´ˆê¸°í™”ë©´ì— ê·¸ ì ìš©ì¼ 7ì¼ ì´ì „ë¶€í„° ì ìš© ì „ì¼ê¹Œì§€ ê³µì§€í•©ë‹ˆë‹¤. ë‹¨, íšŒì›ì— ë¶ˆë¦¬í•˜ê²Œ ì•½ê´€ë‚´ìš©ì„ ë³€ê²½í•˜ëŠ” ê²½ìš°ì—ëŠ” ìµœì†Œí•œ 30ì¼ ì´ìƒì˜ ì‚¬ì „ ìœ ì˜ˆê¸°ê°„ì„ ë‘ê³  ê³µì§€í•©ë‹ˆë‹¤. ì´ ê²½ìš° êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ì€ ê°œì • ì „ ë‚´ìš©ê³¼ ê°œì • í›„ ë‚´ìš©ì„ ëª…í™•í•˜ê²Œ ë¹„êµí•˜ì—¬ íšŒì›ì´ ì•Œê¸° ì‰½ë„ë¡ í‘œì‹œí•©ë‹ˆë‹¤.<br>
+				3. ë³€ê²½ëœ ì•½ê´€ì€ êµ­ê°€ê³µê°„ì •ë³´í¬í„¸ í™ˆíŽ˜ì´ì§€ì— ê³µì§€í•˜ê±°ë‚˜ e-mailì„ í†µí•´ íšŒì›ì—ê²Œ ê³µì§€í•˜ë©°, ì•½ê´€ì˜ ë¶€ì¹™ì— ëª…ì‹œëœ ë‚ ë¶€í„° ê·¸ íš¨ë ¥ì´ ë°œìƒë©ë‹ˆë‹¤. íšŒì›ì´ ë³€ê²½ëœ ì•½ê´€ì— ë™ì˜í•˜ì§€ ì•ŠëŠ” ê²½ìš°, íšŒì›ì€ ë³¸ì¸ì˜ íšŒì›ë“±ë¡ì„ ì·¨ì†Œ(íšŒì›íƒˆí‡´)í•  ìˆ˜ ìžˆìœ¼ë©°, ë³€ê²½ëœ ì•½ê´€ì˜ íš¨ë ¥ ë°œìƒì¼ë¡œë¶€í„° 7ì¼ ì´ë‚´ì— ê±°ë¶€ì˜ì‚¬ë¥¼ í‘œì‹œí•˜ì§€ ì•„ë‹ˆí•˜ê³  ì„œë¹„ìŠ¤ë¥¼ ê³„ì† ì‚¬ìš©í•  ê²½ìš°ëŠ” ì•½ê´€ ë³€ê²½ì— ëŒ€í•œ ë™ì˜ë¡œ ê°„ì£¼ë©ë‹ˆë‹¤.<br>
+					<br> ì´í•˜ìƒëžµ <br>
 				</p>
 			</fieldset>
-			<input type="checkbox" id="checkbox"> À§ÀÇ ÀÌ¿ë¾à°ü¿¡ µ¿ÀÇÇÕ´Ï´Ù. <br>
+			<input type="checkbox" id="checkbox"> ìœ„ì˜ ì´ìš©ì•½ê´€ì— ë™ì˜í•©ë‹ˆë‹¤. <br>
 		
-				<input type="submit" value="°¡ÀÔ" id="submit">
+				<input type="submit" value="ê°€ìž…" id="submit">
 				
 		</form>
 	
