@@ -7,31 +7,35 @@
 	<style type="text/css">
 	
 		*{
-			background-color:black;
-			width: 1000 px;	
-			text-align: center;
-			
-			
+			margin: 0;
+			padding: 0;
 		}
 	
 		body{
-			
+			background-color:black;
+			width: 1000 px;	
+			text-align: center;
+		}
+		
+		#main_home{
+			margin: 0px auto; 
+			text-align: center;
 		
 		}
 		
 		.container1{
 			
-			
 			width:90%;
 			height: 500px;
-			margin: 10px auto; 
+			margin: 0px auto; 
+			padding-top: 10px;
 				
 			
 		}
 		
 		.container2{
 			
-			width:900px;
+			width: 900px;
 			height: 500px;
 			margin: 10px auto; 
 				
@@ -119,63 +123,69 @@
 	
 	<%@include file="menu.jsp"%>
 	
-	<div class="container1">
-		
-		
-		<div class="big">
-		
-		</div>
-		
-		
-		<p></p>
-		<p class="description">Lastbookstore 전시회입니다.</p>
-		<p class="description">책에대한 관심이 사라진 현대의 모습</p>
-		
-	</div>
 	
-	
-	
-	<div class="container2">
-	
-	
-		<div class="small1">
-			<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
-			<p>모네</p>
-			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
-		</div>
-		
-		<div class="small2">
-			<img alt="" src="images/delight1.jpg" id="delight1" width="250px" height="250px">
-			<p>기쁨</p>
-			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
-		</div>
-		
-		
-		<div class="small3">
-			<img alt="" src="images/pulitzer1.jpg" id="pulitzer1" width="250px" height="250px">
-			<p>퓰리처</p>
-			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
-		</div>
-		
-		<div class="small4">
-			<img alt="" src="images/yumi1.jpg" id="yumi1" width="250px" height="250px">
-			<p>유미의 세포들</p>
-			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
-		</div>
-		
-		<div class="small5">
-			<img alt="" src="images/teamlab1.jpg" id="teamlab1" width="250px" height="250px">
-			<p>팀랩</p>
-			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
-		</div>
+	<div id="main_home">
+		<div class="container1">
 			
-
-		<div class="small6">
-			<img alt="" src="images/trip1.jpg" id="trip1" width="250px" height="250px">
-			<p>여행</p>
-			<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>		
-
+			
+			<div class="big">
+			
+			</div>
+			
+			
+			<p></p>
+			<p class="description">Lastbookstore 전시회입니다.</p>
+			<p class="description">책에대한 관심이 사라진 현대의 모습</p>
+			
 		</div>
+		
+		
+		
+		<div class="container2">
+		
+		
+			<div class="small1">
+				<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
+				<p>모네</p>
+				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</div>
+			
+			<div class="small2">
+				<img alt="" src="images/delight1.jpg" id="delight1" width="250px" height="250px">
+				<p>기쁨</p>
+				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</div>
+			
+			
+			<div class="small3">
+				<img alt="" src="images/pulitzer1.jpg" id="pulitzer1" width="250px" height="250px">
+				<p>퓰리처</p>
+				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</div>
+			
+			<div class="small4">
+				<img alt="" src="images/yumi1.jpg" id="yumi1" width="250px" height="250px">
+				<p>유미의 세포들</p>
+				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</div>
+			
+			<div class="small5">
+				<img alt="" src="images/teamlab1.jpg" id="teamlab1" width="250px" height="250px">
+				<p>팀랩</p>
+				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</div>
+				
+	
+			<div class="small6">
+				<img alt="" src="images/trip1.jpg" id="trip1" width="250px" height="250px">
+				<p>여행</p>
+				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>		
+	
+			</div>
+		</div>
+		
+	
+	</div>
 
 
 </body>

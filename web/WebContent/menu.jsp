@@ -1,13 +1,15 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
  *{
  	margin:0;
  	padding: 0;
+ 	background-color: black;
  }
  	body{
   	}
@@ -22,7 +24,6 @@
  		width: 1000px;
  		height : 130px;
  		margin: 0 auto;
- 		background-color: black;
  	}
  	
  	#logo{
@@ -86,6 +87,8 @@
 	}
 	button{
 		height: 25px;
+		color : white;
+		font-size: 12px;
 	}
  	
 </style>
@@ -95,7 +98,7 @@
 	<header>
 		<div id="wrap">	
 			<div id="logo">
-				<img alt="" src="images/logoo.JPG" width="230">
+				<a href="main.jsp"> <img alt="" src="images/logoo.JPG" width="230"> </a>
 			</div>
 			<nav id="menu">
 						
