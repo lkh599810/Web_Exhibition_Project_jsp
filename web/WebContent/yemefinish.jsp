@@ -34,98 +34,91 @@
          
       }
       
-      .yemejungbo{
-      
-      	text-align: center;
-      	border: thick red;                   
-      }
-      
-      /*포스터*/
-      #poster{
-         text-align: center;
-         float: left;
-         margin: 50px 0;
-         padding: 15px;
-         width: 400px;
-        
-
-      }
-      
-      /*정보*/
-      #info{
-         text-align: center;
-         float: right;
-         margin: 40px 0 0 50px;
-         padding: 15px;
-         width: 500px;
-       
-         
-      }
-      
-   
-      
-      h1,h2{
-      
-         margin:10px 0 0 10px;
-      }
-      
-      /*예매가 완료되었습니다!*/
+       /*예매가 완료되었습니다!*/
       .yemewanryo{
       	
       	text-align: center;
       	font-size: 45px;
-                            
+      	margin: 100px auto;
+
       }
       
-      
-     
-      .sogae1{/*세부설명*/	
-         margin: 20px 0px 0px 60px;
-         
-         padding: 30px auto;                      
-         letter-spacing:1.5px;
-         word-spacing: px;
-         line-height: 1.5;
-         font-size: 15px;
-         text-align: left;
-      
-      }
-     
-     
-      
-      .price{/*가격*/
+       .ticketing{
       	
-		 font-size: 25px;
-		 font-style: italic;
-		 margin: 10px 20px 0 10px;
-		 align-content: left;
+      	border-bottom: 1px solid pink ;
+      	       
+      	padding: 20px 0 20px 0;
       
       }
+      
+      
+       table.yemejungbo{
+      
+      	
+      	align-content: center;
+      	margin: 20px auto;   
+      	width: 400px;
+      	height: 300px;           
+      	text-align: center;
+      
+      }
+      
+   
         
+      /*정보*/
+      .container{
+         text-align: center;
+        
+         margin: auto;
+         padding: 15 15 15 15;
+         width: 500px;
+         border: 1px solid white;    
+       		
+         
+      }
       
-     
-      .jaemok{
+      td{         
       
-      	text-align: left;
+      	font-size: 20px;          
+       
+      }
+      .gigan{
       
+      	font-size:15px;
+      }
+      
+      
+      .allprice{
       	
-      }
-      
-      .jangso, .gigan, .gwanramilm, .yemeil{
-      
-      
-      	text-align: left;
-      	font-size: 20px;      
-      
-      }
-      
-       .posterinfo{
-      
-      	border: 1px solid pink;     
-      
+      	margin: 20px;	
+      	font-size: 22px;
       
       }
     
+    
+   	.homebutton{
+   		  
+      
+         background-color: white;
+         color: black;
+         width: 200px;   
+         height: 60px;
+         align-content: center;
+         border-radius:10px;
+         font-size: 18px;
+         padding:3px 3px;
+         margin:50px 0px 50px 30px; 
+      }
+      
+      .homebutton:hover {
+      
+	      color: blue;
+	      background-color: silver;
+      }
+   	
+   		
+   	}
+ 
       
       
    </style>
@@ -140,46 +133,75 @@
    
    <section>
      	
-                
+                  
          <h1 class="yemewanryo">예매가 완료되었습니다!</h1>
      
    
    </section>
   
-  	<br><br><br>
-   <hr width="100%">
+  	<br>
+  
   	
   
   	
    <section >
-   <br><br><br>
-  	    <h1 class="yemejungbo">Ticketing information</h1>
+   <br><br>
+  	   
+  	    <h1 class="ticketing">Ticketing information</h1>
     <br>
-   <div class="posterinfo">
-    	
-	      <div id="poster">
-	         <img alt="" src="images/monet1.jpg" width="330" height="430">
-	      </div>
-	   
-	      <div class="container" id="info">
-	         <h1 class="jaemok">모네 특별전</h1>
-	            <br>
-	            <h2 class="jangso">장소 </h2><p>      
-	               <h2 class="sogae1">서울시 용산구 국립중앙박물관</h2><br>
-	            <h2 class="gigan">기간 </h2><p>
-	               <h2 class="sogae1">2020.03.12~2020.05.14</h2><br>
-	      		<h2 class="gwanramil">관람일 </h2><p>
-	               <h2 class="sogae1">2020.03.25 PM 17:00</h2><br>
-  				<h2 class="yemeil">예매 일시 </h2><p>
-	               <h2 class="sogae1">2020.03.12 AM 07:30:05</h2><br><br><br><br>     	      
+   
+    
+	      <div class="container">
 	      
-	            <label class="price">$49.0</label>    
-	          
-	    
+	      
+	    	
+	    	<table class="yemejungbo">
+	    	
+	    		<tr>
+		    		<td > 전시명 </td>
+		    		<td class="jaemok"> 모네 특별전 </td>
+	    		</tr>
+	    		
+	    		<tr>
+		    		<td> 전시 기간 </td>
+		    		<td class="gigan"> 2020.03.12~2020.05.03 </td>
+	    		</tr>
+	    		
+	    		<tr>   
+	    			<td> 예매수량 </td>
+	    			<td> 1 </td>
+	    		</tr>
+	    		
+	    		<tr>
+		    		<td> 가격 </td>
+		    		<td class="price"> $49 </td>
+	    		</tr>
+	    	
+	    		
+	    		
+	    	
+	    		
+	    	
+	    	</table>
+	    	
+	    	
+	    	
+		    	<div class="allprice">
+			    	<label id="label1">
+			    		총 가격 : 
+			    	</label>
+			    	
+			    	<label id="label2">
+			    		 2135322
+			    	</label>
+		    	</div>
+	    	
+	    	
 	      </div>
-	  
-  
-   </div> 
+		
+		<br><br><br>	
+		<input type="button" class="homebutton" onclick="location.href='main.jsp'" value="홈으로 돌아가기">
+    
   
    </section>
    
