@@ -29,7 +29,7 @@
 			border-left: none;
 			border-right: none;
 			border-bottom: 1px solid white;
-			background-color : #323232;
+			background-color : #000000;
 			color : white;
 			
 			font-size: 16px;
@@ -39,12 +39,27 @@
 			margin-bottom: 30px; 
 			
 		}
-	
 		#formm input:hover{
 			border-bottom: 2px solid #1EA4FF;
 		}
 		#formm input:focus{
 			outline: none;
+		}
+		#formm #id {
+			width: 210px;
+			margin-right: 10px;
+		}
+			
+		/*중복확인 버튼*/
+		#formm button {
+			padding: 5px;
+			height: 35px;
+			background-color: #323232;
+			color : white;
+		}
+		#formm button:hover{
+			background-color: #CDECFA;
+			color : #000000;
 		}
 		
 		fieldset{
@@ -73,6 +88,7 @@
 		input#submit:hover{
 			background-color: #CDECFA;
 		}
+	
 		
 	</style>
 </head>
@@ -87,7 +103,7 @@
 		<form action="#" method="post" onsubmit="">
 			
 			<div id="formm">
-				 <input type="text" id="id" placeholder="ID"> <button>중복확인</button> <br>
+				 <input type="text" id="id" placeholder="ID"> <button>Check</button> <br>
 				 <input type="password" id="pw" placeholder="PASSWORD"><br>
 				 <input type="password" id="pw_check" placeholder="PASSWORD CHECK"><br>
 				<input type="text" id="name" placeholder="NAME"><br>

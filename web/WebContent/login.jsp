@@ -29,7 +29,7 @@
 			border-left: none;
 			border-right: none;
 			border-bottom: 1px solid white;
-			background-color : #323232;
+			background-color : #000000;
 			color : white;
 			
 			font-size: 16px;
