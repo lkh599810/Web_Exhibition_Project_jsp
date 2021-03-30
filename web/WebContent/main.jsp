@@ -10,19 +10,19 @@
 			margin: 0;
 			padding: 0;
 		}
-	
+	  
 		body{
 			background-color:black;
 			width: 1000 px;	
 			text-align: center;
 		}
-		
-		#main_home{
+		  
+		#main_home{ 
 			margin: 0px auto; 
 			text-align: center;
 		
 		}
-		
+		   
 		.container1{
 			
 			width:90%;
@@ -44,12 +44,18 @@
 		
 		.big{
 			
-			width: 79%;
-			height: 400px;
-			margin:auto;
-			background-image: url("images/lastbookstore1.jfif");
+		
 			
 			
+		}
+		
+		
+		.seemore{
+		
+			background-image:url(images/lastbookstore1.jfif);
+			
+			
+		
 		}
 	
 		p{
@@ -57,11 +63,39 @@
 		
 		}
 		
-		.description{
-				
+		.other{ /*ohter Exhibitions의 "div" */
+			
+			border-bottom: 1px solid white thick; 	
 			color: white;	 
-			margin: 0 0 20px 0 ;
+			margin: 30px auto 15px auto ;
+		 	
+		
+			
+			  
+			width: 400px;    
+		  	
+		  	
 		}
+		
+		h1.otherexhibition{
+			
+			
+			
+			font-family: fantasy;
+			font-size: 40px;
+			border-bottom: 3px solid white;    
+			padding: auto;    
+		}
+		  
+		
+		
+		.description{
+		
+			font-family:mono-space;
+		
+		}
+		
+		
 		.small1{
 			
 			margin:auto ;
@@ -75,7 +109,7 @@
 			
 			margin:auto ;
 			float: left;
-			margin: 20px 10px 10px 40px; 
+			margin: 20px 10px 10px 45px; 
 			
 		
 		}
@@ -90,25 +124,25 @@
 		
 		}
 
-		.small4{
+		.small4{ /*유미*/
 		
-			margin:auto ;
+		
 			float: left;
-			margin: 20px 10px 10px 40px; 
+			margin: 30px 10px 10px 20px; 
 		
-		}
+		} 
 		
 		.small5{
 			margin:auto ;
-			float: left;
-			margin: 20px 10px 10px 40px; 
+			float: left;   
+			margin: 30px 10px 10px 48px; 
 		
 		}
 		
 		.small6{
 			margin:auto ;
 			float: right;
-			margin: 20px 10px 10px 40px; 
+			margin: 30px 10px 10px 40px; 
 		
 		}
 		
@@ -125,67 +159,93 @@
 	
 	
 	<div id="main_home">
+		
 		<div class="container1">
 			
+			<a href="sangsebogi.jsp">
+			<div class="big" 
+			 style=" background-image:url(images/lastbookstore1.jfif);
+			 width: 79%; height: 400px; margin: auto;">
 			
-			<div class="big">
-			
+			  	
+				
 			</div>
 			
-			
-			<p></p>
-			<p class="description">Lastbookstore 전시회입니다.</p>
-			<p class="description">책에대한 관심이 사라진 현대의 모습</p>
-			
+			</a>
+		
 		</div>
 		
 		
+		<br><br>
+		
+		<div class="other">	
+			<p>
+			<h1 class="otherexhibition">More &nbsp; Exhibitions</h1>  
+		</div>
+			
+		
+		
+		<br>
 		
 		<div class="container2">
 		
 		
 			<div class="small1">
+			
+			<a href="sangsebogi.jsp">
 				<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
-				<p>모네</p>
-				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</a>	
+				<p class="description"  >Monet and the Impressionists</p>
+				
 			</div>
 			
 			<div class="small2">
+			
+			<a href="sangsebogi.jsp">
 				<img alt="" src="images/delight1.jpg" id="delight1" width="250px" height="250px">
-				<p>기쁨</p>
-				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</a>	
+				<p class="description"  >The Delight</p>
+				
 			</div>
 			
 			
 			<div class="small3">
+				<a href="sangsebogi.jsp">
 				<img alt="" src="images/pulitzer1.jpg" id="pulitzer1" width="250px" height="250px">
-				<p>퓰리처</p>
-				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+				</a>
+				<p class="description"  >Pulitzer prize 2021</p>
 			</div>
 			
+			
 			<div class="small4">
+			<a href="sangsebogi.jsp">
 				<img alt="" src="images/yumi1.jpg" id="yumi1" width="250px" height="250px">
-				<p>유미의 세포들</p>
-				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+			</a>
+				<p class="description" style="font-family: mono-space;">Yumi's cells</p>
 			</div>
 			
 			<div class="small5">
-				<img alt="" src="images/teamlab1.jpg" id="teamlab1" width="250px" height="250px">
-				<p>팀랩</p>
-				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>
+				<a href="sangsebogi.jsp">
+					<img alt="" src="images/teamlab1.jpg" id="teamlab1" width="250px" height="250px">
+				</a>
+					<p class="description"  >The Team Lab</p> 
+				
 			</div>
 				
 	
 			<div class="small6">
-				<img alt="" src="images/trip1.jpg" id="trip1" width="250px" height="250px">
-				<p>여행</p>
-				<p> <li><a href="sangsebogi.jsp">보러가기</a></li> </p>		
+				<a href="sangsebogi.jsp">
+					<img alt="" src="images/trip1.jpg" id="trip1" width="250px" height="250px">
+					
+				</a>
+					<p class="description"  >The Last Trip</p> 
 	
-			</div>
+			</div>   
 		</div>
 		
 	
 	</div>
+
 
 
 </body>
