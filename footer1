@@ -42,13 +42,17 @@
 		}
 		.inline1{
 			display: inline; 
-			
+			padding: 4px;
+			padding-top: 3px;
 		}
 		li{
 			font-size: 11px;
 		}
 		.hh{
 			border-bottom: solid white 1px;
+		}
+		.lili{
+			padding-top: 3px;
 		}
 		
 	</style>
@@ -73,20 +77,21 @@
 							<div class="foot">
 								<ul>
 									<h3 class="hh">ABOUT</h3>
-									<li>000-0000-0000</li>
-									<li>leee@naver.com</li>
-									<li>서울특별시 서대문구 신촌동 ***-***</li>
-									<li>&copy 2021전시회홈페이지</li>
+									<li class="lili">000-0000-0000</li>
+									<li class="lili">leee@naver.com</li>
+									<li class="lili">서울특별시 서대문구 신촌동 ***-***</li>
+									<li class="lili">&copy 2021전시회홈페이지</li>
 								</ul>
 							</div>
+						
 							
 							<div class="foot">
 								<ul>
 									<h3 class="hh">Site Map</h3>
-									<li><a href="#">예약하기</a></li>
-									<li><a href="#">공지사항</a></li>
-									<li><a href="#">이용약관</a></li>
-									<li><a href="#">개인정보처리방침</a></li>
+									<li class="lili"><a href="#">예약하기</a></li>
+									<li class="lili"><a href="#">공지사항</a></li>
+									<li class="lili"><a href="#">이용약관</a></li>
+									<li class="lili"><a href="#">개인정보처리방침</a></li>
 								</ul>	
 							</div>
 							
