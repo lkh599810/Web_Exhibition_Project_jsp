@@ -43,16 +43,14 @@
 		.inline1{
 			display: inline; 
 			padding: 4px;
-			padding-top: 3px;
-		}
-		li{
-			font-size: 11px;
+			margin: 
 		}
 		.hh{
 			border-bottom: solid white 1px;
 		}
 		.lili{
 			padding-top: 3px;
+			font-size: 11px;
 		}
 		
 	</style>
