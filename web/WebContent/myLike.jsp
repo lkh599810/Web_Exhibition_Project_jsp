@@ -23,7 +23,7 @@
 			padding: 0px 20px;
 		}
 		
-		<%//서브메뉴%>
+		/*서브메뉴*/
 		#sub_menu{
 			text-align: center;
 			float: left;
@@ -61,7 +61,7 @@
 		}
 		
 		
-		<%//메인메뉴%>
+		/*메인*/
 		#like{
 			display:inline-block; 
 			width: 780px;
@@ -72,6 +72,17 @@
 		table{
 			margin: 0 auto;
 		}
+		table #head{
+			height: 30px;
+			font-size: 17px;
+			text-shadow: -1px 0 #0096ff, 0 1px #0096ff, 1px 0 #0096ff, 0 -1px #0096ff;
+		}
+		table td{
+			padding: 5px;		
+			font-size: 13px;
+			padding: 20px;
+			border-bottom: dotted 1px white;
+		}
 		input.img-button {
 	        background: url("images/heart1.png" ) no-repeat;
 	        border: none;
@@ -79,6 +90,14 @@
 	        height: 32px;
 	        cursor: pointer;
       }
+      input.img-button:focus {
+	        background: url("images/like.png" ) no-repeat;
+	border: none;
+	        width: 32px;
+	        height: 32px;
+	        cursor: pointer;
+	}
+      	
 		
 	</style>
 </head>

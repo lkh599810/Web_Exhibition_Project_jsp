@@ -23,7 +23,7 @@
 			padding: 0px 20px;
 		}
 		
-		<%//서브메뉴%>
+		/*서브메뉴*/
 		#sub_menu{
 			text-align: center;
 			float: left;
@@ -61,7 +61,7 @@
 		}
 		
 		
-		<%//메인메뉴%>
+		/*메인메뉴*/
 		#userUpdate{
 			display:inline-block; 
 			width: 780px;

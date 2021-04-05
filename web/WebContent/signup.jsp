@@ -12,7 +12,7 @@
  	padding: 0;
  }
 		body{
-			background-color :	#323232;
+			background-color :	#000000;
 			color : white;
 			font-family: "나눔고딕";
 		}

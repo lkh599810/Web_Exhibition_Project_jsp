@@ -7,14 +7,15 @@
 <title>Insert title here</title>
 <style type="text/css">
  *{
- 	margin:0;
- 	padding: 0;
  }
  	body{
   	}
 
  	
  	header{
+ 	
+ 	margin:0;
+ 	padding: 0;
  		background-color: #000000;
  		width: 100%;
  		margin: 0 auto;

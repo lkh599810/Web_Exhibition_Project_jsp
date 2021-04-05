@@ -23,7 +23,7 @@
 			padding: 0px 20px;
 		}
 		
-		<%//서브메뉴%>
+		/*서브메뉴*/
 		#sub_menu{
 			text-align: center;
 			float: left;
@@ -61,11 +61,12 @@
 		}
 		
 		
-		<%//메인메뉴%>
+		/*메인메뉴*/
 		#ticket{
 			display:inline-block; 
 			width: 780px;
 		}
+		
 		hr{
 			margin: 30px auto;
 		}
@@ -76,10 +77,16 @@
 		table #head{
 			height: 30px;
 			font-size: 17px;
+			text-shadow: -1px 0 #0096ff, 0 1px #0096ff, 1px 0 #0096ff, 0 -1px #0096ff;
 		}
 		table td{
-			padding: 5px;
+			padding: 5px;		
+			font-size: 13px;
+			padding: 20px;
+			border-bottom: dotted 1px white;
 		}
+		
+		
 		#after{
 			background-color : #646464;
 			color : white;
@@ -126,7 +133,7 @@
 					<th width="90">상태</th>
 					<th width="90">비고</th>
 				</tr>
-				<tr>
+				<tr id="list">
 					<td>2020.10.12</td>
 					<td>오늘의어쩌구</td>
 					<td>2</td>
