@@ -67,7 +67,7 @@
 			
 			border-bottom: 1px solid white thick; 	
 			color: white;	 
-			margin: 30px auto 15px auto ;
+			margin: 30px auto ;
 		 	
 		
 			
@@ -86,66 +86,53 @@
 			border-bottom: 3px solid white;    
 			padding: auto;    
 		}
-		  
-		
-		
-		.description{
-		
-			font-family:mono-space;
-		
-		}
-		
-		
-		.small1{
-			
-			margin:auto ;
-			float: left;
-			margin: 20px 10px 10px 20px; 
-			
-			
-		}
-		
-		.small2{
-			
-			margin:auto ;
-			float: left;
-			margin: 20px 10px 10px 45px; 
-			
-		
-		}
-		
-		
-		.small3{
-			
-			margin:auto ;
-			float: right;
-			margin: 20px 10px 10px 20px; 
-			
-		
-		}
 
-		.small4{ /*유미*/
-		
-		
-			float: left;
-			margin: 30px 10px 10px 20px; 
-		
-		} 
-		
-		.small5{
-			margin:auto ;
-			float: left;   
-			margin: 30px 10px 10px 48px; 
-		
+
+
+		/* 전시회 더보기 */
+		#moreEx{
+			padding : 5px;
+			width: 1010px;
+			margin: 20px auto;
 		}
-		
-		.small6{
-			margin:auto ;
-			float: right;
-			margin: 30px 10px 10px 40px; 
-		
+		#moreEx li{
+			float :left;
+			margin: 0 5px 40px 0;
+			width: 500px;
+			height: 300px;
 		}
-		
+		#moreEx a{
+			text-decoration: none;
+			color: white;
+		}
+		#moreEx a h2:hover{
+			text-decoration:underline;
+			color: white;
+		}
+		#moreEx img{
+			float : left;
+			height: 280px;
+			width: 280px;
+			border-radius: 10px;
+			margin-right: 15px;
+			background-color: rgba(20,20,20,0.8);
+			opacity: 1;
+		}
+		#moreEx img:hover{
+			opacity: 0.8;
+		}
+		#moreEx-item{
+			padding: 10px;
+			text-align: left;
+		}
+		.logoP{
+			margin-bottom: 10px;
+			color : #148CFF;
+		}
+		.period{
+			padding-top:20px;	
+			font-size: 12px;
+		}
 		
 	</style>
 
@@ -163,11 +150,7 @@
 		<div class="container1">
 			
 			<a href="sangsebogi.jsp">
-			<div class="big" 
-			 style=" background-image:url(images/lastbookstore1.jfif);
-			 width: 79%; height: 400px; margin: auto;">
-			
-			  	
+			<div class="big" style=" background-image:url(images/lastbookstore1.jfif); width: 79%; height: 400px; margin: auto;">
 				
 			</div>
 			
@@ -187,66 +170,64 @@
 		
 		<br>
 		
-		<div class="container2">
-		
-		
-			<div class="small1">
-			
-			<a href="sangsebogi.jsp">
-				<img alt="" src="images/monet1.jpg" id="monet1" width="250px" height="250px">
-			</a>	
-				<p class="description"  >Monet and the Impressionists</p>
+		<div id="moreEx">
+			<ul>
+				<%//li 반복문 %>
+				<li>
+					<a href="#">
+							<figure> <img alt="" src="images/monet1.jpg" > </figure>
+						<div id="moreEx-item">
+							<p class="logoP">All Ex</p>
+							<h2>Monet and the Impressionists</h2>
+							<p class="period"> 2021.01.01 ~ 2021.03.05 </p>
+								
+						</div>
+					</a>
+				</li>
 				
-			</div>
-			
-			<div class="small2">
-			
-			<a href="sangsebogi.jsp">
-				<img alt="" src="images/delight1.jpg" id="delight1" width="250px" height="250px">
-			</a>	
-				<p class="description"  >The Delight</p>
 				
-			</div>
-			
-			
-			<div class="small3">
-				<a href="sangsebogi.jsp">
-				<img alt="" src="images/pulitzer1.jpg" id="pulitzer1" width="250px" height="250px">
-				</a>
-				<p class="description"  >Pulitzer prize 2021</p>
-			</div>
-			
-			
-			<div class="small4">
-			<a href="sangsebogi.jsp">
-				<img alt="" src="images/yumi1.jpg" id="yumi1" width="250px" height="250px">
-			</a>
-				<p class="description" style="font-family: mono-space;">Yumi's cells</p>
-			</div>
-			
-			<div class="small5">
-				<a href="sangsebogi.jsp">
-					<img alt="" src="images/teamlab1.jpg" id="teamlab1" width="250px" height="250px">
-				</a>
-					<p class="description"  >The Team Lab</p> 
+				<li>
+					<a href="#">
+							<figure> <img alt="" src="images/delight1.jpg"> </figure>
+						<div id="moreEx-item">
+							<p class="logoP">All Ex</p>
+							<h2>The Delights</h2>
+							<p class="period"> 2022.03.01 ~ 2022.03.05 </p>
+								
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+							<figure> <img alt="" src="images/pulitzer1.jpg" > </figure>
+						<div id="moreEx-item">
+							<p class="logoP">All Ex</p>
+							<h2>Monet and the Impressionists</h2>
+							<p class="period"> 2021.01.01 ~ 2021.03.05 </p>
+								
+						</div>
+					</a>
+				</li>
 				
-			</div>
-				
-	
-			<div class="small6">
-				<a href="sangsebogi.jsp">
-					<img alt="" src="images/trip1.jpg" id="trip1" width="250px" height="250px">
-					
-				</a>
-					<p class="description"  >The Last Trip</p> 
-	
-			</div>   
+				<li>
+					<a href="#">
+							<figure> <img alt="" src="images/teamlab1.jpg"> </figure>
+						<div id="moreEx-item">
+							<p class="logoP">All Ex</p>
+							<h2>The Delights</h2>
+							<p class="period"> 2022.03.01 ~ 2022.03.05 </p>
+								
+						</div>
+					</a>
+				</li>
+			 </ul> 
 		</div>
 		
 	
 	</div>
 
 
+	<%@include file="footer.jsp"%>
 
 </body>
 </html>

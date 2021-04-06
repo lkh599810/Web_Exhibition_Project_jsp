@@ -7,126 +7,103 @@
 <title>Insert title here</title>
 
 	<style type="text/css">
-*{
-	
-}
 
+		*{
+		 	margin:0;
+		 	padding: 0;
+		 }
 		footer{
-			font-family: "나눔고딕";
-			color: white ;
-			background-color: #070707;
-			margin: 0 auto;
+			text-align : center;
+	 		background-color: #000000;
+	 		width: 100%;
+	 		margin: 0 auto;
+			color: white;
+			padding: 10px;
+			
+		}
+		
+		footer hr{
+			margin: 20px 0;
+		}
+		.footwrap{
+		
+			width: 1010px;
+			height : 140px;
+	 		margin: 0px auto;
+			
 		}
 
-		.footer{
-			width : 100%;
-			height: 200px;
-			background-color: #070707;
-
-		}
-		.foot{
-			float: left;
-			margin: 30px 50px 50px 30px;
-			padding-right: 50px;
-		}
-
-		.foot h2{
-			font-family: "나눔고딕";
-			margin: 0px 0px 0px 30px;
-		}
-
-		.foot h3{
-			font-family: "나눔고딕";
-			margin: 0px 0px 0px 40px;
-			border-bottom: 1px solid white;
-		}
-		.inline1{
-			font-size: 10px;	
-			display: inline;
-		}
-		.footer ul{
+		ul{
 			text-decoration: none;
 			list-style: none;
 		}
-		.footer li{
-			font-size: 15px;
+		.foot{
+			float: left;
+			margin: 20px 45px;
+			
 		}
-
+		.inline1{
+			display: inline; 
+			padding: 4px;
+		}
+		.hh{
+			border-bottom: solid white 1px;
+			margin: 10px;
+		}
+		.lili{
+			padding-top: 3px;
+			font-size: 11px;
+		}
+		
 	</style>
+
 </head>
-<body>
+		<body>
 
-	<footer>
-		<div class="footer">
+				<footer>
+					<hr width="100%" >
+						<div class="footwrap">
+						
+							<div class="foot">
+								<ul>
+									<li class="inline1"><img alt="" src="images/logoo.jpg"></li>
+								</ul>
+							</div>
+							
+							<div class="foot">
+								<ul>
+									<h3 class="hh">ABOUT</h3>
+									<li class="lili">000-0000-0000</li>
+									<li class="lili">leee@naver.com</li>
+									<li class="lili">서울특별시 서대문구 신촌동 ***-***</li>
+									<li class="lili">&copy 2021전시회홈페이지</li>
+								</ul>
+							</div>
+						
+							
+							<div class="foot">
+								<ul>
+									<h3 class="hh">Site Map</h3>
+									<li class="lili"><a href="#">예약하기</a></li>
+									<li class="lili"><a href="#">공지사항</a></li>
+									<li class="lili"><a href="#">이용약관</a></li>
+									<li class="lili"><a href="#">개인정보처리방침</a></li>
+								</ul>	
+							</div>
+							
+							<div class="foot">
+								<ul>
+									<h3 class="hh">SNS</h3>
+									<li class="inline1"><a href="#"><img alt="" src="images/ytube.png"></a></li>
+									<li class="inline1"><a href="#"><img alt="" src="images/igram.png"></a></li>
+									<li class="inline1"><a href="#"><img alt="" src="images/fbook.png"></a></li>
+								</ul>	
+							</div>
+								
+						</div>
+						
+				</footer>
+				
 
-				<div class="foot">
-
-						<ul>
-
-							<li class="inline1"><a href="#"><img alt="" src="image/logoo.png" width="150" height="70"></a></li>
-
-						</ul>
-
-				</div>
-
-
-				<div class="foot">
-
-						<h3>ABOUT</h3>
-
-						<ul>
-							<li>000-0000-0000</li>
-							<li>leee@naver.com </li>
-							<li>서울특별시 서대문구 신촌동 ***-*** </li>
-							<li> &copy 2021전시회홈페이지 </li>
-
-						</ul> 
-
-				</div>
-
-
-				<div class="foot">
-
-						<h3>Site Map</h3>
-
-						<ul>
-
-							<li><a href="#">예약하기</a></li>
-
-							<li><a href="#">공지사항</a></li>
-
-							<li><a href="#">이용약관</a></li>
-
-							<li><a href="#">개인정보처리방침</a></li>
-
-					</ul>
-
-				</div>
-
-
-		<div class="foot">
-
-					<h3>SNS</h3>
-
-						<ul>
-
-							<li class="inline1"><a href="#"><img alt="" src="image/faceb.png" width="45" height="45"></a></li>
-
-							<li class="inline1"><a href="#"><img alt="" src="image/insta.png" width="45" height="45"></a></li>
-
-							<li class="inline1"><a href="#"><img alt="" src="image/youtube.png" width="45" height="45"></a></li>
-
-						</ul>
-
-				</div>
-
-
-
-		</div>	
-
-	</footer>	
-
-
-
-</body>
-</html> 
+		</body>
+</html>
