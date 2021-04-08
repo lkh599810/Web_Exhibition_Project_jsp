@@ -41,6 +41,14 @@ create table buy(
     buyUseDate varchar(30) not null
 );
 
+포인트 db (포인트번호(오토키,pk),회원아이디(fk),포인트 사용날짜, 포인트 적립/사용 이유(회원가입,생일,리뷰작성,구매),사용/적립 포인트)
+create table project.pointbook(
+	pointNum int not null primary key,
+    pointUserID varchar(40) not null,
+    pointDate varchar(50) not null,
+    pointReason int not null,
+    point int not null
+);
 
 후기db (번호,전시회번호,유저아이디,리뷰내용,사진(선택),별점,등록날짜)
 create table review(
