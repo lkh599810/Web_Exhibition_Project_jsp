@@ -105,6 +105,12 @@
 </head>
 <body>
 
+<%
+		String userID=null;
+		if(session.getAttribute("userID")!=null){
+			userID= (String) session.getAttribute("userID");
+		}
+%>
 	<header>
 		<div id="wrap">	
 			<div id="logo">
