@@ -46,7 +46,7 @@ create table project.pointbook(
 	pointNum int not null primary key,
     pointUserID varchar(40) not null,
     pointDate varchar(50) not null,
-    pointReason int not null,
+    pointReason varchar(50) not null,
     point int not null
 );
 
