@@ -1,3 +1,6 @@
+<%@page import="DTO.Exhibition"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DAO.ExhibitionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -114,69 +117,85 @@
 
    
 	<%@include file = "menu.jsp" %> 
-  
-  <form method="post" enctype="multipart/form-data" action="exhibition_regaction.jsp">
-   <section>  
-   
-   
-	   <div class="posterinfo">
-	    
-		      <div id="exPoster">
-		         <label>포스터 파일</label> <input type="file" id="exPost" name="exPost" >
-		      </div>
-		   
-		      <div class="container" id="info">
-		      	
-		         
-		         <label>전시회 명</label> <br>
-		         	<input type="text" id="exName" placeholder="Exhibition Name" name="exName">
-		            <br><br>
-		         
-		         <label>전시기간</label> <br>
-		        	 <input type="text" id="exStart" placeholder="전시시작" name="exStart"> ~ 
-					<input type="text" id="exEnd" placeholder="전시종료" name="exEnd"> <br><br>
-					 
-		         <label>가격</label> <br>
-					<input type="text" id="exPrice" name="exPrice"> <br>
-					
-				 <label>장소</label> <br>
-					<input type="text" id="exMap" name="exMap"> <br>
-		      </div>
-		  
-	  
-	   </div> 
-   
-   </section>
-   
-   
-   <hr width="900px" style="text-align: center; margin : 0 auto;">
-   
-   <section>
-      <div id="exContent" >
-         <label>소개</label> <br>
-       	<textarea rows="13" cols="130" name="exContent"></textarea>
-      </div>
-         
-         
-      <div id="potos">
-            
-		         <label>전시회 사진1</label> <input type="file" id="exPoto1" name="exPoto1"> <br>
-		         <label>전시회 사진2</label> <input type="file" id="exPoto2" name="exPoto2"> <br>
-               	 <label>전시회 사진3</label> <input type="file" id="exPoto3"name="exPoto3">  <br>
-         </div>
-	   
-		   	<div class="addbutton">
+	
+	<%
+		request.setCharacterEncoding("UTF-8");
+		
+		int exNum= Integer.parseInt(request.getParameter("exNum"));
+			
+		ExhibitionDAO dao=ExhibitionDAO.getinstance();
+		Exhibition exhibition=dao.getexhibition(exNum);
+	
+	%>
+
+
+
+	<form method="post" enctype="multipart/form-data"
+		action="exhibition_modifyaction.jsp?exNum=<%=exhibition.getExNum()%>">
+		<section>
+
+
+			<div class="posterinfo">
+
+				<div id="exPoster">
+					<label>포스터 파일</label> <input type="file" id="exPost" name="exPost"
+						value="<%=exhibition.getExPost()%>">
+				</div>
+
+				<div class="container" id="info">
+
+
+					<label>전시회 명</label> <br> <input type="text" id="exName"
+						placeholder="Exhibition Name" name="exName"
+						value="<%=exhibition.getExName()%>"> <br>
+					<br> <label>전시기간</label> <br> <input type="text"
+						id="exStart" placeholder="전시시작" name="exStart"
+						value="<%=exhibition.getExStart()%>"> ~ <input type="text"
+						id="exEnd" placeholder="전시종료" name="exEnd"
+						value="<%=exhibition.getExEnd()%>"> <br>
+					<br> <label>가격</label> <br> <input type="text"
+						id="exPrice" name="exPrice" value="<%=exhibition.getExPrice()%>">
+					<br> <label>장소</label> <br> <input type="text" id="exMap"
+						name="exMap" value="<%=exhibition.getExMap()%>"> <br>
+				</div>
+
+
+			</div>
+
+		</section>
+
+
+		<hr width="900px" style="text-align: center; margin: 0 auto;">
+
+		<section>
+			<div id="exContent">
+				<label>소개</label> <br>
+				<textarea rows="13" cols="130" name="exContent"><%=exhibition.getExContent() %></textarea>
+			</div>
+
+
+			<div id="potos">
+
+				<label>전시회 사진1</label> <input type="file" id="exPoto1"
+					name="exPoto1" value="<%=exhibition.getExPoto1()%>"> <br>
+				<label>전시회 사진2</label> <input type="file" id="exPoto2"
+					name="exPoto2" value="<%=exhibition.getExPoto2()%>"> <br>
+				<label>전시회 사진3</label> <input type="file" id="exPoto3"
+					name="exPoto3" value="<%=exhibition.getExPoto3()%>"> <br>
+			</div>
+
+			<div class="addbutton">
 				<input type="submit" class="btn btn-primary" value="등록">
 			</div>
-   
-   
-   </section>
-   
-   
-   
-   </form>
-   
-      
-   
+
+
+		</section>
+
+
+
+	</form>
+
+
+
 </body>
 </html>

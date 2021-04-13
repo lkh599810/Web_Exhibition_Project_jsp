@@ -1,3 +1,5 @@
+<%@page import="DAO.ExhibitionDAO"%>
+<%@page import="DTO.Exhibition"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -101,7 +103,7 @@
       	
 		 font-size: 20px;
 		 font-style: italic;
-		 margin: 0px 20px 0 30px;
+		 margin: 0px 10px 0 20px;
 		 align-content: center;
       
       }
@@ -187,22 +189,62 @@
     	align-content: center;
     	
     }
-    
-  
-  
- 
-    
-   
-    
-  
-    
-      
+        
    </style>
+
+	<script type="text/javascript">
+					
+					
+					
+					
+	
+		
+					function button_event(  ){
+					if (confirm("예매 하시겠습니까?")){  
+						
+						
+						
+						document.yemego.submit();					
+	
+							
+				
+					}else{   //취소
+						
+					    return;
+					
+					}
+					
+					
+					}//function 끝
+				
+					
+					
+		</script>
+
+
 </head>
+
 <body>
 
    
    <%@include file = "menu.jsp" %> 
+  
+  
+  	<%
+  	
+	request.setCharacterEncoding("UTF-8");
+	
+  	int exNum=Integer.parseInt(request.getParameter("exNum"));
+  	
+  	ExhibitionDAO dao=ExhibitionDAO.getinstance();
+  	
+  	Exhibition exhibition= dao.getexhibition(exNum);
+  	
+  	
+  	
+  	
+  	
+  	%>
   
   
    <section>
@@ -210,14 +252,14 @@
    <div class="posterinfo">
     
 	      <div id="poster">
-	         <img alt="" src="images/monet1.jpg" width="330"  height="330" align="bottom">
+	         <img alt="" src="images/<%=exhibition.getExPost() %>" width="330"  height="330" align="bottom">
 	         
 	      </div>
 	   
 	      <div class="container" id="info">
-	         <h1 class="jaemok">모네 특별전</h1>                          	
+	         <h1 class="jaemok"> <%=exhibition.getExName() %> </h1>                          	
 	            <br><p><p>    
-	          
+	          <form method="post" action="yemefinish.jsp" name="yemego">
 			          <table> <%//전시회 정보 테이블 %>
 			          
 							          	<tr> <%//칸 조정 위한 빈 tr %>
@@ -241,7 +283,7 @@
 			          	<tr>
 			          		<td class="sebujungbo">Period </td>
 			          		<td>&nbsp</td>
-			          		<td class="gigan">   2020.03.19~2021.05.21</td>
+			          		<td class="gigan"> <%=exhibition.getExStart() %>~<%=exhibition.getExStart() %></td>
 			          		<td>&nbsp</td>
 			          	</tr>
 			          	
@@ -255,25 +297,45 @@
 			   			<tr>
 			          		<td class="sebujungbo"> Price  </td>     
 			          		<td>&nbsp</td>
-			          		<td class="price">$49</td>
-			          		<td>&nbsp</td>
+			          		<td class="price">&#8361;<%=exhibition.getExPrice() %></td>
+			          		
+			          		<td>
+			          		
+			          			
+			          			<input type="hidden" value="yemego" name="yemego"> 
+			          			<input type="hidden" value="<%=exhibition.getExNum() %>" name="exNum">
+			          			
+				          		<select style="color: black;" name="yemesu">
+				          			<option value="1">1</option>
+				          			<option value="2">2</option>
+				          			<option value="3">3</option>
+				          			<option value="4">4</option>
+				          			<option value="5">5</option>
+				          			<option value="6">6</option>
+				          			<option value="7">7</option>
+				          			<option value="8">8</option>
+				          			<option value="9">9</option>
+			          			</select>
+		
+			          		</td>
 			          	</tr>      
-			          	
-			          	 	
+			     
 			          	<tr>
 			          		<td class="like">찜하기</td>
 			          		<td> 
 			      				<input type="button" class="img-button">
 			      			</td>
 			          		<td>
-			          	 		<input type="button" class="yeme" value="예매하기" onclick="location.href='login.jsp'">
+							
+			          	 		<input type="button" class="yeme" value="예매하기" onclick="button_event()">
+			          	 		
 			          		</td>
 			         		<td>&nbsp</td>
 			          	</tr>
-			          
-			          
+						          
 			          
 			          </table>
+	                    </form>
 	          
 	          
 	          
@@ -313,22 +375,7 @@
          	
          
             <h2 class="sogae">
-                       
-             
-            국립중앙박물관은 훈민정음 반포 574주년을 맞이하여 
-
-            테마전 '모네 특별전'을(2020.10.7.~2021.3.31.)를 개최합니다.
-               
-            이 전시는 국립중앙박물관이 2004년부터 편찬한 『역사자료총서』의 연구 성과를 토대로 
-               
-            박물관이 소장하고 있는 역사자료의 내용을 재미있게 풀어내어 
-               
-            청소년을 비롯한 일반 대중에게 역사에 대한 관심을 높이고자 마련하였습니다.
-               
-            한자나 옛 한글로 쓰여진 역사자료를 한글로 쉽게 풀어내고, 
-               
-            재미있는 콘텐츠와 함께하는 전시, 국립중앙박물관에서 만나보세요.
-               
+					<%=exhibition.getExContent() %>               
             </h2>
       </div>
          
@@ -346,16 +393,16 @@
                   <div class="carousel-inner">
                   
                      <div class="item active">
-                        <img src="images/monet1.jpg" width="100%" height="80%">
+                        <img src="images/<%=exhibition.getExPoto1() %>" width="100%" height="80%">
                      </div>
                      
                      <div class="item">
-                        <img src="images/monet2.jpg" width="100%" height="80%">
+                        <img src="images/<%=exhibition.getExPoto2() %>" width="100%" height="80%">
                      </div>
                   
                   
                      <div class="item">
-                        <img src="images/monet3.jpg" width="100%" height="80%">
+                        <img src="images/<%=exhibition.getExPoto3() %>" width="100%" height="80%">
                      </div>
                   
                   </div>
@@ -372,11 +419,11 @@
    </section>
    
       
-    <section> <%//댓글 게시판 %>
+    <section> <%//리뷰 게시판 여기 쓰시면 돼요%>
     
+    	
     
-    
-    </section>  <%//댓글 게시판 끝 %>
+    </section>  <%//리뷰 게시판 끝 %>
     
     
     
@@ -394,7 +441,7 @@
     	<br><br><br><br><br><br>
     	<div class="map">
     		
-    		<img alt="" src="images/지도.jpg" width="500" height="400">
+    		<img alt="" src="<%=exhibition.getExMap() %>" width="500" height="400">
     		
     	</div>
     

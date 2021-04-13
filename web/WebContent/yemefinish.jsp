@@ -1,3 +1,5 @@
+<%@page import="DTO.Exhibition"%>
+<%@page import="DAO.ExhibitionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -119,7 +121,7 @@
    		
    	}
  
-      
+       
       
    </style>
 </head>
@@ -128,7 +130,26 @@
    
    <%@include file = "menu.jsp" %> 
   
+  <% 
+  	request.setCharacterEncoding("UTF-8");
+	
+	int yemesu=Integer.parseInt(request.getParameter("yemesu"));
   
+  	int exNum=Integer.parseInt(request.getParameter("exNum"));
+  	
+  	
+  	ExhibitionDAO dao=ExhibitionDAO.getinstance();
+  	
+  	Exhibition exhibition= dao.getexhibition(exNum);
+  	
+  
+  	 
+  	dao.updatesold(exhibition);
+  	
+  	
+  	
+  	
+  %>
   
    
    <section>
@@ -158,23 +179,23 @@
 	    	<table class="yemejungbo">
 	    	
 	    		<tr>
-		    		<td > 전시명 </td>
-		    		<td class="jaemok"> 모네 특별전 </td>
+		    		<td > 전시 명 </td>
+		    		<td class="jaemok"> <%=exhibition.getExName() %> </td>
 	    		</tr>
 	    		
 	    		<tr>
 		    		<td> 전시 기간 </td>
-		    		<td class="gigan"> 2020.03.12~2020.05.03 </td>
+		    		<td class="gigan"><%=exhibition.getExStart() %>~<%=exhibition.getExStart() %> </td>
 	    		</tr>
 	    		
 	    		<tr>   
 	    			<td> 예매수량 </td>
-	    			<td> 1 </td>
+	    			<td> <%=yemesu %> </td>
 	    		</tr>
 	    		
 	    		<tr>
 		    		<td> 가격 </td>
-		    		<td class="price"> $49 </td>
+		    		<td class="price">&#8361;<%=exhibition.getExPrice()%></td>
 	    		</tr>
 	    	
 	    		
@@ -192,7 +213,7 @@
 			    	</label>
 			    	
 			    	<label id="label2">
-			    		 2135322
+			    		 &#8361;<%=exhibition.getExPrice()*yemesu %>
 			    	</label>
 		    	</div>
 	    	

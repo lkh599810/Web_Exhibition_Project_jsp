@@ -1,3 +1,6 @@
+<%@page import="DTO.*"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DAO.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -83,16 +86,15 @@
 			
 			font-family: fantasy;
 			font-size: 40px;
-			border-bottom: 3px solid white;    
+			border-bottom: 3px solid white;  
+			margin-right:100px;  
 			padding: auto;    
 		}
-
-
-
 		/* 전시회 더보기 */
 		#moreEx{
 			padding : 5px;
 			width: 1010px;
+			height:auto;
 			margin: 20px auto;
 		}
 		#moreEx li{
@@ -134,6 +136,9 @@
 			font-size: 12px;
 		}
 		
+		
+		
+		
 	</style>
 
 	
@@ -145,12 +150,26 @@
 	<%@include file="menu.jsp"%>
 	
 	
+	<%
+	
+		ExhibitionDAO dao=ExhibitionDAO.getinstance(); 
+		
+		ArrayList<Exhibition> exlist=dao.getallexhibition();
+	
+	
+	
+	%>
+	
+	
 	<div id="main_home">
 		
 		<div class="container1">
 			
 			<a href="sangsebogi.jsp">
+			
+			
 			<div class="big" style=" background-image:url(images/lastbookstore1.jfif); width: 79%; height: 400px; margin: auto;">
+			
 				
 			</div>
 			
@@ -172,61 +191,35 @@
 		
 		<div id="moreEx">
 			<ul>
-				<%//li 반복문 %>
+				<%
+				
+				
+					for(int i=0; i<exlist.size(); i++){
+						Exhibition exhibition= exlist.get(i);
+			
+				%>
+				
 				<li>
-					<a href="#">
-							<figure> <img alt="" src="images/monet1.jpg" > </figure>
+					<a href="sangsebogi.jsp?exNum=<%=exhibition.getExNum()%>">
+							<figure> <img alt="" src="images/<%=exhibition.getExPost() %>" > </figure>
 						<div id="moreEx-item">
 							<p class="logoP">All Ex</p>
-							<h2>Monet and the Impressionists</h2>
-							<p class="period"> 2021.01.01 ~ 2021.03.05 </p>
+							<h2><%=exhibition.getExName() %></h2>
+							<p class="period"> <%=exhibition.getExStart() %> ~ <%=exhibition.getExEnd() %> </p>
 								
 						</div>
 					</a>
 				</li>
 				
+				<%} %>
 				
-				<li>
-					<a href="#">
-							<figure> <img alt="" src="images/delight1.jpg"> </figure>
-						<div id="moreEx-item">
-							<p class="logoP">All Ex</p>
-							<h2>The Delights</h2>
-							<p class="period"> 2022.03.01 ~ 2022.03.05 </p>
-								
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-							<figure> <img alt="" src="images/pulitzer1.jpg" > </figure>
-						<div id="moreEx-item">
-							<p class="logoP">All Ex</p>
-							<h2>Monet and the Impressionists</h2>
-							<p class="period"> 2021.01.01 ~ 2021.03.05 </p>
-								
-						</div>
-					</a>
-				</li>
-				
-				<li>
-					<a href="#">
-							<figure> <img alt="" src="images/teamlab1.jpg"> </figure>
-						<div id="moreEx-item">
-							<p class="logoP">All Ex</p>
-							<h2>The Delights</h2>
-							<p class="period"> 2022.03.01 ~ 2022.03.05 </p>
-								
-						</div>
-					</a>
-				</li>
 			 </ul> 
+		
+		
 		</div>
 		
 	
 	</div>
-
-
 	<%@include file="footer.jsp"%>
 
 </body>
