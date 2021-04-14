@@ -34,7 +34,7 @@ public class PointDAO {
 	public ArrayList<Point> getPointList(String userID){
 		ArrayList<Point> pointList = new ArrayList<Point>();
 		
-		String sql = "select * from pointbook where pointUserID=?";
+		String sql = "select * from pointbook where pointUserID=? ORDER BY pointDate DESC";
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
 			
@@ -45,10 +45,10 @@ public class PointDAO {
 			while(rs.next()) {
 				Point point = new Point();
 				
-				point.setPointUserID(rs.getString("1"));
-				point.setPointDate(rs.getString("2"));
-				point.setPointReason(rs.getString("3"));
-				point.setPoint(rs.getInt("4"));
+				point.setPointUserID(rs.getString("pointUserID"));
+				point.setPointDate(rs.getString("pointDate"));
+				point.setPointReason(rs.getString("pointReason"));
+				point.setPoint(rs.getInt("point"));
 				
 				pointList.add(point);
 			}

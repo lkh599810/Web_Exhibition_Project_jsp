@@ -65,7 +65,7 @@ public class MemberDAO {
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, userID);
 			
-			pst.executeQuery();
+			rs = pst.executeQuery();
 			
 			if(rs.next()) {
 				return 1; //중복 아이디 있음
@@ -73,7 +73,6 @@ public class MemberDAO {
 			else {
 				return 0; //중복 아이디 없음
 			}
-			
 			
 		}catch (Exception e) {
 			

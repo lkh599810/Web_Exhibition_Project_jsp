@@ -29,6 +29,8 @@ public class MyTicketDAO {
 	public static MyTicketDAO getInstance() { //부르면 해당 객체 넘겾귀
 		return instance;
 	}
+	//회원이 구매한 티켓 등록(이름,전시회번호 받아서)
+	
 	
 	//회원이 구매한! 모든 티켓 호출
 	public ArrayList<MyTicket> getAllTicket(String userID){
@@ -64,34 +66,27 @@ public class MyTicketDAO {
 	
 
 	
-//	//해당 전시회 호출 (전시회번호 받아서) //이게 필요한가?? 전시회db인듯
-//	public MyTicket getExhibition(int buyExNum) {
-//		String sql = "SELECT * FROM buy WHERE buyExNum=?";
-//		try {
-//			PreparedStatement pst =conn.prepareStatement(sql);
-//			pst.setInt(1, buyExNum);
-//
-//			rs = pst.executeQuery();
-//			
-//			while(rs.next()) {
-//				MyTicket myTicket = new MyTicket();
-//
-//				myTicket.setBuyNum(rs.getInt(1));
-//				myTicket.setBuyUserID(rs.getString(2));
-//				myTicket.setBuyExNum(rs.getInt(3));
-//				myTicket.setBuyCount(rs.getInt(4));
-//				myTicket.setBuyPrice(rs.getInt(5));
-//				myTicket.setBuyDate(rs.getString(6));
-//				myTicket.setBuyUse(rs.getInt(7));
-//				myTicket.setBuyUseDate(rs.getString(8));
-//			
-//				return myTicket;
-//				
-//			}
-//		}catch (Exception e) {
-//		}
-//		return null;
-//	}
+	//해당 구매내역 정보 변경 (사용or환불 받고, 날짜 받고, 번호받기)
+	public int changeCondition(int useORrefune,String date, int buyNum) {
+		String sql = "UPDATE buy SET buyUse=?, buyUseDate=? WHERE buyNum=?";
+		try {
+			PreparedStatement pst =conn.prepareStatement(sql);
+			pst.setInt(1,useORrefune);
+			if(useORrefune ==1) { //사용하기를 눌렀다면
+				pst.setString(2,date);
+			}
+			else{ //환불하기를 눌렀다면
+				pst.setString(2,null);
+			}
+			pst.setInt(3, buyNum);
+
+			pst.executeUpdate();
+			return 1;
+		
+		}catch (Exception e) {
+		}
+		return -1;
+	}
 	
 	//
 	
