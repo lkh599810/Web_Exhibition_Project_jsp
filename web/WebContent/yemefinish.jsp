@@ -141,15 +141,8 @@
   	ExhibitionDAO dao=ExhibitionDAO.getinstance();
   	
   	Exhibition exhibition= dao.getexhibition(exNum);
-  	
-  
-  	 
-  	dao.updatesold(exhibition);
-  	
-  	
-  	
-  	
-  %>
+
+  	%>
   
    
    <section>
@@ -194,7 +187,7 @@
 	    		</tr>
 	    		
 	    		<tr>
-		    		<td> 가격 </td>
+		    		<td> 전시회 가격 </td>
 		    		<td class="price">&#8361;<%=exhibition.getExPrice()%></td>
 	    		</tr>
 	    	
@@ -219,6 +212,18 @@
 	    	
 	    	
 	      </div>
+	      
+	      <%
+	      
+	      	int exSold =exhibition.getExSold() + yemesu;
+	      	
+	      	exhibition.setExSold(exSold);	 //핵심
+	      
+	      	dao.updatesold(exhibition);
+	      
+	      
+	      %>
+	      
 		
 		<br><br><br>	
 		<input type="button" class="homebutton" onclick="location.href='main.jsp'" value="홈으로 돌아가기">

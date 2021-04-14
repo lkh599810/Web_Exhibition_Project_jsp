@@ -113,7 +113,7 @@
       
     
     input.img-button {
-	        background: url("images/heart1.png" ) no-repeat;
+	        background: url("images/heart0.png" ) no-repeat;
 	        border: none;
 	        width: 32px; 
 	        height: 20px;
@@ -199,7 +199,7 @@
 					
 	
 		
-					function button_event(  ){
+					function yeme_event(  ){
 					if (confirm("예매 하시겠습니까?")){  
 						
 						
@@ -217,6 +217,17 @@
 					
 					}//function 끝
 				
+					function like_event() {
+					if(confirm("찜 하시겠습니까?")){
+						
+						document.likego.submit();
+						
+					}else{
+						
+						return;
+					}								
+						
+					}
 					
 					
 		</script>
@@ -259,7 +270,11 @@
 	      <div class="container" id="info">
 	         <h1 class="jaemok"> <%=exhibition.getExName() %> </h1>                          	
 	            <br><p><p>    
-	          <form method="post" action="yemefinish.jsp" name="yemego">
+	        
+	        
+	          <form method="post" name="yemego" action="yemefinish.jsp">
+			
+			
 			          <table> <%//전시회 정보 테이블 %>
 			          
 							          	<tr> <%//칸 조정 위한 빈 tr %>
@@ -323,11 +338,11 @@
 			          	<tr>
 			          		<td class="like">찜하기</td>
 			          		<td> 
-			      				<input type="button" class="img-button">
+			      				<input type="button" class="img-button" value="찜하기" onclick="like_event()">
 			      			</td>
 			          		<td>
 							
-			          	 		<input type="button" class="yeme" value="예매하기" onclick="button_event()">
+			          	 		<input type="button" class="yeme" value="예매하기" onclick="yeme_event()">
 			          	 		
 			          		</td>
 			         		<td>&nbsp</td>
