@@ -1,3 +1,6 @@
+<%@page import="dto.Member"%>
+<%@page import="dao.MemberDAO"%>
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +26,7 @@
 			padding: 0px 20px;
 		}
 		
-		<%//서브메뉴%>
+		/*서브메뉴*/
 		#sub_menu{
 			text-align: center;
 			float: left;
@@ -59,9 +62,11 @@
 		#user_info{
 			margin-bottom: 30px;
 		}
+		#tic_info{
+			margin-bottom: 10px;
+		}
 		
-		
-		<%//메인메뉴%>
+		/*메인메뉴*/
 		#userUpdate{
 			display:inline-block; 
 			width: 780px;
@@ -69,8 +74,9 @@
 		hr{
 			margin: 30px auto 50px auto;
 		}
-		#formm{
-		}		
+		#updatetable{
+			margin: 0 auto;
+		}	
 		#formm input{
 			border-top: none;
 			border-left: none;
@@ -83,12 +89,19 @@
 			padding: 5px;
 			width: 280px;
 			height : 30px;
-			margin-bottom: 30px; 
+			margin: 15px 0; 
 			
 		}
 	
+		#formm .la{
+			width: 150px;
+			
+		}
 		#formm input:hover{
 			border-bottom: 2px solid #1EA4FF;
+		}
+		#formm .id input:hover{
+			border-bottom: 1px solid white;
 		}
 		#formm input:focus{
 			outline: none;
@@ -100,9 +113,9 @@
 			border : 1px solid black;
 			border-radius: 10px;
 			
-			width: 90px;	
-			height: 40px;	
-			margin-top: 40px;
+			width: 120px;	
+			height: 50px;	
+			margin: 30px 0;
 		}
 		input#submit:hover{
 			background-color: #CDECFA;
@@ -110,47 +123,93 @@
 		}
 		
 		
+		/*회원탈퇴 버튼*/
+		#formm a{
+			padding-top:10px;
+			color : #d2d2d2;
+			font-size: 12px;
+		}
+		
 	</style>
 </head>
 <body>
 
 	
 	<%@include file = "menu.jsp" %> 
+		<%
+		
+		if(userID==null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인이 필요한 서비스입니다.')");
+			script.println("location.href = 'login.jsp'");
+			script.println("</script>");
+		}
+		else{
+			Member member = new MemberDAO().GetMember(userID);
+		
+	%>
 	<section>
 		<nav id="sub_menu">
-			<h3>회원정보</h3>
+			<h3>나의 정보</h3>
 			<ul id="user_info">
-				<li><a href="userUpdate.jsp">	┖ 회원수정</a></li>
-				<li><a href="userDelete.jsp"> ┖ 회원탈퇴</a></li>
+				<li><a href="userUpdate.jsp"> ┖ 정보 수정</a></li>
+				<li><a href="pointBook.jsp"> ┖ 포인트 내역 </a></li>
+
 			</ul>
-			<h3>티켓정보</h3>
+			<h3>티켓 정보</h3>
 			<ul id="tic_info">
-				<li><a href="myTicket.jsp"> ┖ 나의 티켓 </a></li>
+				<li><a href="myTicket.jsp"> ┖ 예매 내역 </a></li>
 				<li><a href="myLike.jsp"> ┖ 나의 관심</a></li>
 			</ul>
 		</nav>
 	
 		<div class="container" id="userUpdate">
 		
-			<h2>회원 수정</h2>
-			<hr width="700">
+			<h2>회원정보 수정</h2>
+			<hr width="750">
 			
-			<form action="#" method="post" onsubmit="" id="formm">
-			
-				 <input type="text" id="id" placeholder="ID" readonly="readonly"> <br>
-				 <input type="password" id="pw" placeholder="PASSWORD"><br>
-				 <input type="password" id="pw_check" placeholder="PASSWORD CHECK"><br>
-				<input type="text" id="name" placeholder="NAME"><br>
-				 <input type="email" id="eamil" placeholder="EMAIL"><br>
-				 <input type="text" id="phone" placeholder="PHONE"><br>
-				 
-				<input type="submit" value="수정" id="submit">
+			<form action="userUpdateAction.jsp" method="post" onsubmit="" id="formm">
+				<table id="updatetable">
+					<tr>
+						<td class="la"> <label>ID</label></td>
+						<td> <input type="text" name="id" class="id" placeholder="ID" value="<%=member.getId() %>" readonly="readonly"> </td>
+					</tr>
+					<tr>
+						<td class="la"> <label>PW</label></td>
+						<td> <input type="password" name="pw" placeholder="PASSWORD"> </td>
+					</tr>
+					<tr>
+						<td class="la"> <label>PW_CHECK</label></td>
+						<td> <input type="password" name="pw_check" placeholder="PASSWORD CHECK"></td>
+					</tr>
+					<tr>
+						<td class="la"> <label>NAME</label></td>
+						<td><input type="text" name="name" value="<%=member.getUserName()%>" placeholder="NAME"> </td>
+					</tr>
+					<tr>
+						<td class="la"> <label>EMAIL</label></td>
+						<td> <input type="email" name="email" value="<%=member.getUserEmail()%>" placeholder="EMAIL"> </td>
+					</tr>
+					<tr>
+						<td class="la"> <label>PHONE</label></td>
+						<td> <input type="text" name="phone" value="<%=member.getUserPhone()%>" placeholder="PHONE"> </td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="수정" id="submit"></td>
+					</tr>
+					
+					<tr>
+						<td colspan="2"><a href="userDelete.jsp" id="dele"> 회원탈퇴</a> </td>
+					</tr>
 			</form>
+			
+			
 		</div>
 		
 	</section>
 	
-		
+		<%} %>
 	
 </body>
 </html>

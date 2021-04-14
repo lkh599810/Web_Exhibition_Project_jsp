@@ -119,12 +119,20 @@
 			<nav id="menu">
 						
 				<ul id="member_menu">
+				<%
+					if(userID==null){
+				%>
 					<li><a href="login.jsp">Login</a>|</li>
-					<li><a href="signup.jsp">SingUp</a>|</li>
-					<%//회원로그인 %>
-					<li><a href="myTicket.jsp">MyPage</a></li>
-					<%//관리자로그인 %>
-					<li><a href="exhibitionList.jsp">List</a></li>
+					<li><a href="signup.jsp">SingUp</a></li>
+					
+				<%}else{ //로그인 되어있는 경우
+					if(userID.equals("admin")){ //로그인한사람이 admin인 경우 %>
+						<li><a href="exhibitionList.jsp">List</a>|</li>
+					<li><a href="logoutAction.jsp">Logout</a></li>
+				<%	}else{	//일반 회원인 경우 %>
+					<li><a href="myTicket.jsp">MyPage</a>|</li>
+					<li><a href="logoutAction.jsp">Logout</a></li>
+				<%}}	%>
 				</ul>
 			
 				<ul id="main_menu">

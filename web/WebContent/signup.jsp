@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +15,6 @@
 		body{
 			background-color :	#000000;
 			color : white;
-			font-family: "나눔고딕";
 		}
 		#sign{
  			width: 1000px;
@@ -88,34 +88,120 @@
 		input#submit:hover{
 			background-color: #CDECFA;
 		}
-	
+		#idAlert{
+			font-size: 12px;
+			padding-right: 130px;
+		}
 		
 	</style>
 </head>
 <body>
+<%
 
+	int checked = -2; //초기값 (중복값)
+	if(request.getParameter("check")!=null){ 
+		checked= Integer.valueOf(request.getParameter("check"));
+	}
 	
+	String okID = ""; //초기값 (중복 아닌경우 아이디 가져오기)
+	if(request.getParameter("okID")!=null){ 
+		okID= request.getParameter("okID");
+	}
+	
+%>
+	<script type="text/javascript">
+		function idCheck(id) {
+			//아이디 한글 못받게
+			var reg = /^[a-zA-Z0-9]*$/;
+			
+			if(!reg.test(join.id.value)){
+				alert("영문/숫자 조합만 가능합니다.");
+				return false;
+			}
+			if(!join.id.value){
+				alert("아이디 입력해주세요");
+				return false;
+			}
+			if( id ){
+				location.href = 'IDCheckAction.jsp?id='+id;
+				
+			}
+			
+		} 
+	
+	
+		function checkForm() {
+			if(!join.id.value){
+				alert("아이디 입력해주세요");
+				return false;
+			}
+			
+			//아이디 중복확인 했는지
+			if( join.idCh_result.value==1 ){ //1= 중복값
+				alert("아이디 중복확인을 해주세요");
+				return false;
+			}
+			
+			if( !join.pw.value ){
+				alert("비밀번호 입력해주세요");
+				return false;
+			}
+			if( join.pw.value != join.pw_check.value ){
+				alert("비밀번호가 동일하지 않습니다");
+				return false;
+			}
+			if( !join.name.value ){
+				alert("성명을 입력해주세요");
+				return false;
+			}
+			if( !join.email.value ){
+				alert("이메일을 입력해주세요");
+				return false;
+			}
+			if( !join.phone.value ){
+				alert("연락처 입력해주세요");
+				return false;
+			}	
+			if(!join.checkbox.checked){
+				alert("이용약관에 동의해주세요");
+				return false;
+			} 
+		}
+		
+	</script>
+
 	<%@include file = "menu.jsp" %> 
 	<div id="sign">
 		<h2>SIGN UP</h2>
 		<hr width="600">
 		
-		<form action="#" method="post" onsubmit="">
+		<form id="join" method="post" action="SignupAction.jsp" onsubmit="return checkForm()">
 			
 			<div id="formm">
-				 <input type="text" id="id" placeholder="ID"> <button>Check</button> <br>
-				 <input type="password" id="pw" placeholder="PASSWORD"><br>
-				 <input type="password" id="pw_check" placeholder="PASSWORD CHECK"><br>
-				<input type="text" id="name" placeholder="NAME"><br>
-				 <input type="email" id="eamil" placeholder="EMAIL"><br>
-				 <input type="text" id="phone" placeholder="PHONE"><br>
+				<% if(checked==0){%>
+					<label id="idAlert"> 사용 가능한 아이디 입니다. </label> <br>
+					 <input type="text" name="id" id="id" value="<%=okID %>" placeholder="ID">
+				<%}else if(checked==1){%>
+					<label id="idAlert"> 중복 된 아이디가 있습니다. </label> <br>
+					 <input type="text" name="id" id="id" placeholder="ID">
+				<%}else if(checked==-1){%>
+					<label id="idAlert"> db오류 </label> <br>
+				<%}else{ %>
+					<br>
+					<input type="text" name="id" id="id" placeholder="ID">
+					<%} %>
+					<input type="hidden" name="idCh_result" value="<%=checked%>"> <button type="button" onclick="idCheck(this.form.id.value)">Check</button> <br>
+				 <input type="password" name="pw" placeholder="PASSWORD"><br>
+				 <input type="password" name="pw_check" placeholder="PASSWORD CHECK"><br>
+				<input type="text" name="name" placeholder="NAME"><br>
+				 <input type="email" name="email" placeholder="EMAIL"><br>
+				 <input type="text" name="phone" placeholder="PHONE"><br>
 			</div>
 			
 			<fieldset>
 				<legend>서비스 이용약관 동의</legend>
 				<p class="agree">제 1장 총칙 <br> <br>
 					제 1 조(목적)<br><br>
-					본 약관은 국가공간정보포털 웹사이트(이하 "국가공간정보포털")가 제공하는 모든 서비스(이하 "서비스")의 이용조건 및 절차, 회원과 국가공간정보포털의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.<br><br>
 					제 2 조(약관의 효력과 변경)<br><br>
 				1. 국가공간정보포털은 이용자가 본 약관 내용에 동의하는 경우, 국가공간정보포털의 서비스 제공 행위 및 회원의 서비스 사용 행위에 본 약관이 우선적으로 적용됩니다. <br>
 				2. 국가공간정보포털은 약관을 개정할 경우, 적용일자 및 개정사유를 명시하여 현행약관과 함께 국가공간정보포털의 초기화면에 그 적용일 7일 이전부터 적용 전일까지 공지합니다. 단, 회원에 불리하게 약관내용을 변경하는 경우에는 최소한 30일 이상의 사전 유예기간을 두고 공지합니다. 이 경우 국가공간정보포털은 개정 전 내용과 개정 후 내용을 명확하게 비교하여 회원이 알기 쉽도록 표시합니다.<br>
@@ -123,9 +209,9 @@
 					<br> 이하생략 <br>
 				</p>
 			</fieldset>
-			<input type="checkbox" id="checkbox"> 위의 이용약관에 동의합니다. <br>
+			<input type="checkbox" name="checkbox"> 위의 이용약관에 동의합니다. <br>
 		
-				<input type="submit" value="가입" id="submit">
+			<input type="submit" value="가입" id="submit">
 				
 		</form>
 	

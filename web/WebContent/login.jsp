@@ -14,14 +14,13 @@
 		body{
 			background-color :	#000000;
 			color : white;
-			font-family: "나눔고딕";
 		}
 		#login{
  			width: 1000px;
 	 		margin: 50px auto;
 			text-align: center;
 		}
-		hr{
+		#login hr{
 			margin: 40px auto;
 		}
 		#formm input{
@@ -64,20 +63,22 @@
 <body>
 
 	
-	<%@include file = "menu.jsp" %> 
+	<%@include file = "/menu.jsp" %> 
 	<div id="login">
 		<h2>LOGIN</h2>
 		<hr width="600">
 		
+			<form action="LoginAction.jsp" method="post">
+				<div id="formm">
+					 <input type="text" name="id" placeholder="ID">  <br>
+					 <input type="password" name="pw" placeholder="PASSWORD"><br>
+				</div>
 			
-			<div id="formm">
-				 <input type="text" id="id" placeholder="ID">  <br>
-				 <input type="password" id="pw" placeholder="PASSWORD"><br>
-			</div>
-			
-		
-			<input type="submit" value="로그인" id="submit">
-
+				<input type="submit" value="로그인" id="submit">
+			</form>
 	</div>
+	
+	
+	<%@include file="/footer.jsp"%>
 </body>
 </html>

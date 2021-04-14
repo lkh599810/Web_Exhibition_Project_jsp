@@ -59,6 +59,9 @@
 		#user_info{
 			margin-bottom: 30px;
 		}
+		#tic_info{
+			margin-bottom: 10px;
+		}
 		
 		
 		/*메인메뉴*/
@@ -68,6 +71,9 @@
 		}
 		hr{
 			margin: 30px auto 50px auto;
+		}
+		#formm strong{
+			font-size: 20px;
 		}
 		#formm input{
 			border-top: none;
@@ -81,7 +87,7 @@
 			padding: 5px;
 			width: 280px;
 			height : 30px;
-			margin-bottom: 30px; 
+			margin: 20px 0; 
 			
 		}
 	
@@ -92,17 +98,21 @@
 			outline: none;
 		}
 		
-		input#submit{
+		input#submit, #userUpdate button{
 			background-color : #646464;
 			color : white;
 			border : 1px solid black;
 			border-radius: 10px;
 			
-			width: 90px;	
-			height: 40px;	
-			margin-top: 40px;
+			width: 120px;	
+			height: 50px;	
+			margin: 30px 10px;
 		}
-		input#submit:hover{
+		#userUpdate button { /*취소버튼*/
+			font-size: 16px;
+		}
+		
+		input#submit:hover,#userUpdate button:hover{
 			background-color: #CDECFA;
 			color : black;
 		}
@@ -113,31 +123,33 @@
 <body>
 
 	
-	<%@include file = "menu.jsp" %> 
+	<%@include file = "/menu.jsp" %> 
 	<section>
 		<nav id="sub_menu">
-			<h3>회원정보</h3>
+			<h3>나의 정보</h3>
 			<ul id="user_info">
-				<li><a href="userUpdate.jsp">	┖ 회원수정</a></li>
-				<li><a href="userDelete.jsp"> ┖ 회원탈퇴</a></li>
+				<li><a href="userUpdate.jsp"> ┖ 정보 수정</a></li>
+				<li><a href="pointBook.jsp"> ┖ 포인트 내역 </a></li>
+
 			</ul>
-			<h3>티켓정보</h3>
+			<h3>티켓 정보</h3>
 			<ul id="tic_info">
-				<li><a href="myTicket.jsp"> ┖ 나의 티켓 </a></li>
+				<li><a href="myTicket.jsp"> ┖ 예매 내역 </a></li>
 				<li><a href="myLike.jsp"> ┖ 나의 관심</a></li>
 			</ul>
 		</nav>
 	
-		<div class="container" id="userUpdate">
+		<div id="userUpdate">
 		
 			<h2>회원 탈퇴</h2>
 			<hr width="700">
-			<div id="formm">
-				 <input type="text" id="id" placeholder="ID" readonly="readonly"> <br>
+			<form id="formm" action="userDeleteAction.jsp" method="post">
+				 <p> <strong> <%=userID %></strong> 회원님 <br>
+				 지금까지 ALL EXHIBITION을 이용해주셔서 감사합니다. </p> <br>
 				 <input type="password" id="pw" placeholder="PASSWORD"><br>
 				 
-				<input type="submit" value="탈퇴" id="submit">
-			</div>
+				<input type="submit" value="탈퇴" id="submit" onclick="" id="cancel"><button> 취소 </button>
+			</form>
 		</div>
 		
 	</section>
