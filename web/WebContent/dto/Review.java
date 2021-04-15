@@ -1,6 +1,6 @@
-package project;
+package dto;
 
-public class Dto {
+public class Review {
 	
 	private String reviewNum;
 	
