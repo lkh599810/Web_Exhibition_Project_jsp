@@ -57,6 +57,6 @@ create table review(
     reviewUserID varchar(30) not null,
     reviewContent varchar(2000) not null,
     reviewFile varchar(50),
-    reviewGrade int not null,
+    reviewGrade double not null,
     reviewDate varchar(50) not null
 );
