@@ -14,7 +14,6 @@ create table exhibition(
     exPrice int not null,
     exSold int not null,
     exMap varchar(100),
-    exLike boolean not null,
     exCondition int not null,
     exGrade int not null
 );
@@ -59,4 +58,13 @@ create table review(
     reviewFile varchar(50),
     reviewGrade double not null,
     reviewDate varchar(50) not null
+);
+
+찜하기 db
+create table web.like(
+   likeNum int primary key not null,
+    likeUserID varchar(40) not null,
+   likeExNum int not null,
+   likeCondition boolean not null
+    
 );
