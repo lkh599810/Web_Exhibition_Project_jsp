@@ -5,8 +5,6 @@
     pageEncoding="UTF-8"%>
     
 
-    
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,10 +67,7 @@
 			font-size: 13px;
 			padding: 20px;
 			border-bottom: dotted 1px white;
-		}
-		
-		
-		
+		}	
 		.registerlink{
 		
 			font-size:17px;
@@ -85,11 +80,7 @@
 		
 	</style>
 	<script type="text/javascript">
-					
-					
-					
-					
-					
+								
 		
 					function button_event(exNum){
 					if (confirm("정말 삭제하시겠습니까??")){    //확인
@@ -125,7 +116,7 @@
 			<h2 class="h2">
 					 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
 							  전시회 목록
-					  <a class="registerlink" href="exhibition_reg.jsp">전시회 등록</a>
+					  <a class="registerlink" href="exhibition_reg.jsp"><button id = "after">전시회 등록</button></a>
 					   
 			 </h2>
 		
