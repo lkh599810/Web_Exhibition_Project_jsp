@@ -1,3 +1,5 @@
+<%@page import="DTO.Like"%>
+<%@page import="DAO.LikeDAO"%>
 <%@page import="DAO.ExhibitionDAO"%>
 <%@page import="DTO.Exhibition"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -112,10 +114,20 @@
     
       
     
-    input.img-button {
-	        background: url("images/heart0.png" ) no-repeat;
+    input.img-button1{
+    		background-image:url("images/heart0000.png");
 	        border: none;
-	        width: 32px; 
+	        width: 30px; 
+	        height: 20px;
+	        cursor: pointer;
+	        margin: 0px 50px 0 30px;   
+	        padding:15px;    
+      }
+      
+       input.img-button2{
+    		background-image:url("images/heart1111.png");
+	        border: none;
+	        width: 30px; 
 	        height: 20px;
 	        cursor: pointer;
 	        margin: 0px 50px 0 30px;   
@@ -195,40 +207,88 @@
 	<script type="text/javascript">
 					
 					
-					
-					
-	
 		
-					function yeme_event(  ){
+					function yeme_event(userID){
+						
+						
 					if (confirm("예매 하시겠습니까?")){  
 						
-						
-						
-						document.yemego.submit();					
-	
+						if(userID=="null"){
 							
-				
-					}else{   //취소
+							alert('로그인이 필요합니다.');
+							 
+							return;
+							
+						}else if(userID!="null"){
+							
+							document.yemego.submit();
+							
+							
+							
+						}else{   //취소
 						
-					    return;
+					    return ;
+					
+						}
+					
+					
 					
 					}
 					
+					}//예매 function 끝
 					
-					}//function 끝
-				
-					function like_event() {
-					if(confirm("찜 하시겠습니까?")){
+					
+					
+					
+				//============찜하기 function===============
+					
+					
+					// 1.로그인 안돼었을 때 찜하기 버튼 클릭 시;
+					function like_event1(){ 
 						
-						document.likego.submit();
-						
-					}else{
+						alert('로그인이 필요합니다.');
 						
 						return;
-					}								
+					
+					}
+					
+					
+					
+					//2. 로그인 되어있고, 찜하기 버튼을 클릭 시; //찜 안되어있을 시
+					function like_event2(likeUserID,likeExNum) {
+					
+						if(confirm("찜 하시겠습니까?")){
+							
+							document.location.href="likeAction.jsp?likeUserID="+likeUserID+"&likeExNum="+likeExNum;
+							
+							
+						}else{
+							
+							return;
+							
+						}
+						
+						
 						
 					}
 					
+					//3. 로그인 되어있고, 찜하기 버튼을 클릭 시; //찜 되어있을 시
+					function like_event3(likeUserID,likeExNum) {
+						
+						if(confirm("찜 해제 하시겠습니까?")){
+							
+							document.location.href="likeAction.jsp?likeUserID="+likeUserID+"&likeExNum="+likeExNum;
+							
+							
+						}else{
+							
+							return;
+							
+						}
+						
+						
+						
+					}
 					
 		</script>
 
@@ -238,22 +298,40 @@
 <body>
 
    
-   <%@include file = "menu.jsp" %> 
+   <%@include file = "/menu.jsp" %>
   
   
   	<%
   	
+  	userID= (String)session.getAttribute("userID");
+  	
+  	
+  	
 	request.setCharacterEncoding("UTF-8");
 	
+  	
+ 
   	int exNum=Integer.parseInt(request.getParameter("exNum"));
   	
   	ExhibitionDAO dao=ExhibitionDAO.getinstance();
   	
   	Exhibition exhibition= dao.getexhibition(exNum);
+ 	
+  	String likeUserID=(String)session.getAttribute("userID"); //세션 유저아이디를 likeUserID에 대입. 여기의 String likeUserID는 db의 like테이블의 특정 행의  likeUserID가 아니다.
+
+  	int likeExNum=Integer.parseInt(request.getParameter("exNum")); //exNum을 likeExnum에 대입.
   	
   	
+  	Like like = new Like();
   	
+
+	  	LikeDAO likedao=LikeDAO.getinstance();
+		  	
+	  	like=likedao.getlike(likeUserID, likeExNum); //여기가 문젠가? DAO의 getlike rs.next rs가 없을경우 해줘야하는듯
+	  	
+
   	
+  //	like테이블에 아무것도 없을때는?	 
   	
   	%>
   
@@ -261,7 +339,7 @@
    <section>
    
    <div class="posterinfo">
-    
+  	
 	      <div id="poster">
 	         <img alt="" src="images/<%=exhibition.getExPost() %>" width="330"  height="330" align="bottom">
 	         
@@ -269,12 +347,16 @@
 	   
 	      <div class="container" id="info">
 	         <h1 class="jaemok"> <%=exhibition.getExName() %> </h1>                          	
-	            <br><p><p>    
+	            <br><p><p>
+	            
+	            
 	        
 	        
-	          <form method="post" name="yemego" action="yemefinish.jsp">
+	          
 			
-			
+				<form method="post" name="yemego" action="yemefinish.jsp">
+			         
+			         
 			          <table> <%//전시회 정보 테이블 %>
 			          
 							          	<tr> <%//칸 조정 위한 빈 tr %>
@@ -310,15 +392,15 @@
 					   			
 			   			
 			   			<tr>
-			          		<td class="sebujungbo"> Price  </td>     
+			          		<td class="sebujungbo"> Price</td>     
 			          		<td>&nbsp</td>
 			          		<td class="price">&#8361;<%=exhibition.getExPrice() %></td>
 			          		
 			          		<td>
 			          		
 			          			
-			          			<input type="hidden" value="yemego" name="yemego"> 
-			          			<input type="hidden" value="<%=exhibition.getExNum() %>" name="exNum">
+			          			<input type="hidden" value="yemego" name="yemego">
+			          			<input type="hidden" value="<%=exhibition.getExNum()%>" name="exNum">
 			          			
 				          		<select style="color: black;" name="yemesu">
 				          			<option value="1">1</option>
@@ -336,21 +418,68 @@
 			          	</tr>      
 			     
 			          	<tr>
+			          		
 			          		<td class="like">찜하기</td>
+			          		
+			          		<%
+			          			/*로직 : 1.로그인이 되어있나? => 로그인 안한 상태면 빈하트 => 하트 클릭 시 ('로그인 필요함' 창 띄우기)
+			          					2.로그인 한 상태면 찜하기상태(likeCondition)가 0일땐 빈하트(heart0000.png), 찜하기 상태가 1 일땐 빨강하트(heart1.png)		
+			          			*/
+			          			
+			          		if(userID==null){
+			          			  
+			          			
+			          		%>
+        		
 			          		<td> 
-			      				<input type="button" class="img-button" value="찜하기" onclick="like_event()">
+			      				<input type="button" class="img-button1" onclick="like_event1()">
 			      			</td>
-			          		<td>
-							
-			          	 		<input type="button" class="yeme" value="예매하기" onclick="yeme_event()">
-			          	 		
-			          		</td>
+			      			
+			      			<%
+			      			}else if(userID!=null){ ////작동.
+			      				
+			      				if(like==null || like.getLikeCondition()==0){//여기를, if userid=like.getlikeUserID && exNum=like.getlikeExNum 일때 그 행의 condition이 0/1일때
+			      			
+			      			
+			      			%>
+			      			
+			      		
+				      		<td> 
+			      				<input type="button" class="img-button1" onclick="like_event2('<%=likeUserID%>','<%=likeExNum%>')">
+			      				
+			      			</td>
+			      			
+			      			
+				      		
+				      		
+				      		<%}else if(like.getLikeCondition()==1){ //아직 실험 x%>
+			      			
+			      			
+			      			<td> 
+			      				<input type="button" class="img-button2" onclick="like_event3('<%=likeUserID%>','<%=likeExNum%>')">
+			      			</td>
+			      			
+			      			<%  
+			      				}
+			      				
+			      			}
+			      			
+			      			%>
+				      			
+				      			
+				          		<td>
+								
+				          	 		<input type="button" class="yeme" value="예매하기" onclick="yeme_event('<%=userID %>')">
+				          	 		
+				          		</td>
+			          		 
 			         		<td>&nbsp</td>
+			         		
 			          	</tr>
 						          
 			          
 			          </table>
-	                    </form>
+	                 </form>  
 	          
 	          
 	          

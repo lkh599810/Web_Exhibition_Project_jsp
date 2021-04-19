@@ -1,3 +1,8 @@
+<%@page import="DTO.Exhibition"%>
+<%@page import="DAO.ExhibitionDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DAO.LikeDAO"%>
+<%@page import="DTO.Like"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,8 +28,8 @@
 			padding: 0px 20px;
 		}
 		
-		/*서브메뉴*/
-		#sub_menu{
+		<%//서브메뉴%>
+		#sub_menu{ 
 			text-align: center;
 			float: left;
 			margin: 80px 0;
@@ -35,7 +40,8 @@
 			background-color : #3c3c3c;
 			border-top:none;
 			border-bottom:none;
-			border-radius: 10px;
+			border-radius: 10px;  
+			
 		}
 		#sub_menu h3{
 			color : white;
@@ -59,10 +65,10 @@
 		#user_info{
 			margin-bottom: 30px;
 		}
+		 
 		
-		
-		/*메인*/
-		#like{
+		<%//메인메뉴%>
+		#like{ 
 			display:inline-block; 
 			width: 780px;
 		}
@@ -72,39 +78,69 @@
 		table{
 			margin: 0 auto;
 		}
-		table #head{
-			height: 30px;
-			font-size: 17px;
-			text-shadow: -1px 0 #0096ff, 0 1px #0096ff, 1px 0 #0096ff, 0 -1px #0096ff;
-		}
-		table td{
-			padding: 5px;		
-			font-size: 13px;
-			padding: 20px;
-			border-bottom: dotted 1px white;
-		}
 		input.img-button {
-	        background: url("images/heart1.png" ) no-repeat;
+	        background: url("images/likecancel.jpg" ) no-repeat;
 	        border: none;
-	        width: 32px;
+	        width: 32px; 
 	        height: 32px;
 	        cursor: pointer;
       }
-      input.img-button:focus {
-	        background: url("images/like.png" ) no-repeat;
-	border: none;
-	        width: 32px;
-	        height: 32px;
-	        cursor: pointer;
-	}
-      	
+      
+      a.titlelink{
+      
+      	color: aqua;
+      }
 		
 	</style>
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+	
+		function like_Cancel(likeUserID, exNum) {
+			
+			if(confirm("찜목록에서 삭제 하시겠습니까?")){
+			
+			document.location.href=document.location.href="likeCancel.jsp?likeUserID="+likeUserID+"&exNum="+exNum;
+			
+			}else{
+				
+				return;
+				
+			}
+			
+		
+		}
+	
+	
+	
+	</script>
+	
 </head>
 <body>
 
 	
 	<%@include file = "menu.jsp" %> 
+	
+	<%
+		request.getParameter("UTF-8");
+		String likeUserID=(String)session.getAttribute("userID");
+		
+			
+		
+	
+		LikeDAO likedao=LikeDAO.getinstance();
+		
+		ArrayList<Like> likelist = likedao.getalllike(likeUserID);
+		
+	
+		
+	%>
+	
+	
+	
 	<section>
 		<nav id="sub_menu">
 			<h3>회원정보</h3>
@@ -131,12 +167,49 @@
 					<th width="90">전시</th>
 					<th width="90">관심설정</th>
 				</tr>
+				
+				<%
+				
+				
+					for(int i=0; i<likelist.size() ; i++){
+						
+					Like like=likelist.get(i);
+					
+					
+					int exNum=like.getLikeExNum();
+					ExhibitionDAO dao=ExhibitionDAO.getinstance();
+					Exhibition exhibition=dao.getexhibition(exNum);
+					
+					if(likelist.get(i).getLikeCondition()==1){
+			
+					%>
+					
 				<tr>
-					<td>오늘의어쩌구</td>
-					<td>2020.10.15 ~ 2020.11.20</td>
-					<td>종료</td>
-					<th><input type="button" class="img-button"> </th>
+					<td><a href="sangsebogi.jsp?exNum=<%=exhibition.getExNum()%>" class="titlelink"><%=exhibition.getExName() %></a></td>
+					<td><%=exhibition.getExStart() %> ~ <%=exhibition.getExEnd() %></td>
+					<td><%=exhibition.getExCondition() %></td>
+				
+					<th><input type="button" class="img-button" onclick="like_Cancel('<%=likeUserID %>','<%=exNum %>')" > </th>	
 				</tr>
+				
+				<%}else{ %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				
+					<th></th>	
+				</tr>
+				
+					
+				
+				
+				<%		}
+					
+					} 
+				
+				%>
+				
 			</table>
 		</div>
 		
