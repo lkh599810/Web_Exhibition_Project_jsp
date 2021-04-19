@@ -67,4 +67,4 @@ CREATE TABLE `like2` (
   `likeExNum` int NOT NULL,
   `likeCondition` int NOT NULL,
   PRIMARY KEY (`likeNum`)
-)
+);
