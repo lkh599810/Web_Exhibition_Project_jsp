@@ -5,14 +5,14 @@ public class Like {
 	private int likeNum; //기본키
 	private String likeUserID;
 	private int likeExNum;
-	private Boolean likeCondition; //좋아요 상태
+	private int likeCondition; //좋아요 상태
 	
-	public Like() { //생성자
+	public Like() { //깡통생성자
 
 	
 	}
 	
-	public Like(int likeNum, String likeUserID, int likeExNum, Boolean likeCondition) {
+	public Like(int likeNum, String likeUserID, int likeExNum, int likeCondition) {
 		
 		this.likeNum=likeExNum;
 		this.likeUserID=likeUserID;
@@ -21,9 +21,6 @@ public class Like {
 		
 		
 	}
-	
-	
-	
 	
 	
 	
@@ -53,16 +50,21 @@ public class Like {
 		this.likeExNum = likeExNum;
 	}
 
-	public Boolean getLikeCondition() {
+	public int getLikeCondition() {
 		return likeCondition;
 	}
 
-	public void setLikeCondition(Boolean likeCondition) {
+	public void setLikeCondition(int likeCondition) {
 		this.likeCondition = likeCondition;
 	}
 	
 	
 	
+	
+	
+	
+	
+
 	
 	
 }
