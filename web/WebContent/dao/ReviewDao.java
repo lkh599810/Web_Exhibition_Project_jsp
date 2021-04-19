@@ -36,7 +36,7 @@ public class ReviewDao {
 	public ArrayList<Review> getAllreview(String reviewUserID){
 		ArrayList<Review> listreview = new ArrayList<Review>();
 		
-		String sql = "SELECT * FROM write WHERE reviewUserID=?";
+		String sql = "SELECT * FROM write WHERE ExhibitionNum=?";
 		
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
@@ -45,15 +45,16 @@ public class ReviewDao {
 			rs = pst.executeQuery();
 			
 			while(rs.next()) {
+				
 				Review review = new Review();
-			
-				review.setReviewUserID(reviewUserID);
-				review.setReviewNum(reviewUserID);
-				review.setReviewEXNum(sql);
-				review.setReviewContent(sql);
-				review.setReviewDate(reviewUserID);
-				review.setReviewFile(reviewUserID);
-				review.setReviewGrade(sql);
+				
+				review.setReviewUserID(rs.getString(1));
+				review.setReviewNum(rs.getInt(2));
+				review.setReviewExNum(rs.getInt(3));
+				review.setReviewContent(rs.getString(4));
+				review.setReviewDate(rs.getString(5));
+				review.setReviewFile(rs.getString(6));
+				review.setReviewGrade(rs.getDouble(7)));
 				
 				listreview.add(review);
 				
@@ -65,20 +66,35 @@ public class ReviewDao {
 		return listreview;
 	}
 	
+	public int UploadReview(int reviewnum) {
+		try {
+				String sql = "DELETE FROM review WHERE reviewnum=?";
+				PreparedStatement pst = conn.prepareStatement(sql);
+				
+				pst.setInt(1,reviewnum);
+				pst.executeUpdate();
+				
+				return 1;
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return -1;
+		
+	}
+	
 	public int DeleteReview(int reviewnum ) {
 		
 		try {
-				String sql = "DELETE FROM review WHERE revirenum=?";
+				String sql = "DELETE FROM review WHERE reviewnum=?";
 				PreparedStatement pst = conn.prepareStatement(sql);
 				
 				pst.setInt(1, reviewnum);
 				pst.executeUpdate();
 				
-				return 1;
+				return 1; 
 			
 		}catch (Exception e) {
 			// TODO: handle exception
-			
 			
 		}
 		
