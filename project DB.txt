@@ -61,10 +61,10 @@ create table review(
 );
 
 찜하기 db
-create table web.like(
-   likeNum int primary key not null,
-    likeUserID varchar(40) not null,
-   likeExNum int not null,
-   likeCondition boolean not null
-    
-);
+CREATE TABLE `like2` (
+  `likeNum` int NOT NULL AUTO_INCREMENT,
+  `likeUserID` varchar(40) NOT NULL,
+  `likeExNum` int NOT NULL,
+  `likeCondition` int NOT NULL,
+  PRIMARY KEY (`likeNum`)
+)
