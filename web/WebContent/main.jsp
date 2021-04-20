@@ -156,7 +156,7 @@
 		
 		ArrayList<Exhibition> exlist=dao.getallexhibition();
 	
-	
+		
 	
 	%>
 	
@@ -165,7 +165,7 @@
 		
 		<div class="container1">
 			
-			<a href="sangsebogi.jsp">
+		
 			
 			
 			<div class="big" style=" background-image:url(images/lastbookstore1.jfif); width: 79%; height: 400px; margin: auto;">
@@ -173,7 +173,7 @@
 				
 			</div>
 			
-			</a>
+			
 		
 		</div>
 		
