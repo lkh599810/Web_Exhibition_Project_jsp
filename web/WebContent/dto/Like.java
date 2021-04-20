@@ -14,7 +14,7 @@ public class Like {
 	
 	public Like(int likeNum, String likeUserID, int likeExNum, int likeCondition) {
 		
-		this.likeNum=likeExNum;
+		this.likeNum=likeNum;
 		this.likeUserID=likeUserID;
 		this.likeExNum=likeExNum;
 		this.likeCondition=likeCondition;
