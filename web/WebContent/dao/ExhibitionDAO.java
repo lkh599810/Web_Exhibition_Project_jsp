@@ -259,13 +259,13 @@ public class ExhibitionDAO {
 	
 	public void updatesold(Exhibition exhibition) { //구매 시 판매수량 +1 //별점
 		
-		String SQL="update set exSold=? where exNum=?";
+		String SQL="update exhibition set exSold=? where exNum=?";
 		
 		try {
 			
 		PreparedStatement pstmt= conn.prepareStatement(SQL);
 		
-		pstmt.setInt(1, exhibition.getExSold()+1);
+		pstmt.setInt(1, exhibition.getExSold());
 		pstmt.setInt(2, exhibition.getExNum());	
 		
 		pstmt.executeUpdate();
