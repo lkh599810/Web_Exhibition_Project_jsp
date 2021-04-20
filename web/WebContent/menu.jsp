@@ -136,9 +136,9 @@
 				</ul>
 			
 				<ul id="main_menu">
-					<li><a href="#">PAST</a></li>
-					<li><a href="#">CURRENT</a></li>
-					<li><a href="#">UPCOMMING</a></li>
+					<li><a href="ExPast.jsp">PAST</a></li>
+					<li><a href="ExCurrent.jsp">CURRENT</a></li>
+					<li><a href="ExUpcomming.jsp">UPCOMMING</a></li>
 				</ul>
 				
 				
