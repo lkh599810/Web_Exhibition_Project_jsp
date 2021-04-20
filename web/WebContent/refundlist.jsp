@@ -83,7 +83,7 @@
 								
 		
 					function button_event(exNum){
-					if (confirm("정말 삭제하시겠습니까??")){    //확인
+					if (confirm("환불승인 하시겠습니까??")){    //확인
 					
 						location.href="exhibition_deleteaction.jsp?exNum="+exNum;
 				
@@ -115,8 +115,7 @@
 
 			<h2 class="h2">
 					 &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
-							  전시회 목록
-					  <a class="registerlink" href="exhibition_reg.jsp"><button id = "after">전시회 등록</button></a>
+							  환불 목록
 					   
 			 </h2>
 		
@@ -125,9 +124,11 @@
 			<table class="table table-hover">
 
 				<tr id="head"> 
+					<th width="60">번호</th>
 					<th width="145">전시회 명</th>
-					<th width="245">전시기간</th>
+					<th width="245">구매자 명</th>
 					<th width="100">상태</th>
+
 				</tr>
 
 				
@@ -143,11 +144,9 @@
 					<td><%=exhibition.getExStart() %> ~ <%=exhibition.getExEnd() %></td>
 					<td><%=exhibition.getExCondition() %></td>
 					<%//사용 후 후기 미작성 시 %>
-					<td><a href="exhibition_modify.jsp?exNum=<%=exhibition.getExNum()%>"><button id="after">수정</button></a></td>
-					<td>					
-					
-					<button id="after" onclick="button_event('<%=exhibition.getExNum()%>')">삭제</button>
-					</td>
+				<td>
+					<button id="after" onclick="button_event('<%=exhibition.getExNum()%>')">승인</button>
+				</td>	
 				</tr>
 				
 				<%} %>
