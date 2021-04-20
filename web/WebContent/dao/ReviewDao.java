@@ -33,14 +33,14 @@ public class ReviewDao {
 		return instance;
 	}
 	
-	public ArrayList<Review> getAllreview(String reviewUserID){
+	public ArrayList<Review> getAllreview(String exhibitionNum){
 		ArrayList<Review> listreview = new ArrayList<Review>();
 		
-		String sql = "SELECT * FROM write WHERE ExhibitionNum=?";
+		String sql = "SELECT * FROM review WHERE reviewExNum=?";
 		
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setString(1, reviewUserID);
+			pst.setString(1, exhibitionNum);
 			
 			rs = pst.executeQuery();
 			
@@ -48,13 +48,13 @@ public class ReviewDao {
 				
 				Review review = new Review();
 				
-				review.setReviewUserID(rs.getString(1));
-				review.setReviewNum(rs.getInt(2));
-				review.setReviewExNum(rs.getInt(3));
+				review.setReviewNum(rs.getInt(1));
+				review.setReviewExNum(rs.getInt(2));
+				review.setReviewUserID(rs.getString(3));
 				review.setReviewContent(rs.getString(4));
-				review.setReviewDate(rs.getString(5));
-				review.setReviewFile(rs.getString(6));
-				review.setReviewGrade(rs.getDouble(7)));
+				review.setReviewFile(rs.getString(5));
+				review.setReviewGrade(rs.getDouble(6));
+				review.setReviewDate(rs.getString(7));
 				
 				listreview.add(review);
 				
@@ -66,12 +66,18 @@ public class ReviewDao {
 		return listreview;
 	}
 	
-	public int UploadReview(int reviewnum) {
+	// 사진파일 포함된 리뷰우
+	public int UploadReview(Review review) {
 		try {
-				String sql = "DELETE FROM review WHERE reviewnum=?";
+				String sql = "INSERT into review values(? , ? , ? , ? , ? , ?)";
 				PreparedStatement pst = conn.prepareStatement(sql);
 				
-				pst.setInt(1,reviewnum);
+				pst.setInt(1 , review.getReviewExNum());
+				pst.setString(2, review.getreviewUserID());
+				pst.setString(3, review.getreviewContent());
+				pst.setString(4, review.getreviewFile());
+				pst.setDouble(5, review.getreviewGrade());
+				pst.setString(6, review.getreviewDate());
 				pst.executeUpdate();
 				
 				return 1;
@@ -81,6 +87,12 @@ public class ReviewDao {
 		return -1;
 		
 	}
+	// 사진파일 포함안된 리뷰류
+	
+	
+	
+	
+	
 	
 	public int DeleteReview(int reviewnum ) {
 		
@@ -99,6 +111,16 @@ public class ReviewDao {
 		}
 		
 		return -1;
+	}
+	
+	public Double getGrade(int ExNum) {
+		try {
+			String sql = "SELECT reviewGrade FROM review WHERE reviewnum=?";
+			
+			
+			
+		}
+		
 	}
 }
 	
