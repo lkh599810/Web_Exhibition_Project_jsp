@@ -30,17 +30,31 @@
          color : white;
          font-family: "나눔고딕";
       }
-      section{
+    
+    
+       section	{
           width: 1000px;
-          margin: 50px 10px 10px 270px;                                
+          margin: 50px auto;                               
+         text-align: center;
+         padding: 0px 20px;
+         
+      }
+      
+      section.posterinfosection, .contentCarousel{ /*포스터+정보 있는 섹션*/
+          width: 1000px;
+          margin: 50px auto;                               
          text-align: center;
          padding: 0px 20px;
          
       }
       
       
-       .posterinfo{ /*포스터+정보 담는 div*/
       
+     
+      
+      
+       .posterinfo{ /*포스터+정보 담는 div*/
+       height : auto;
       	
       	border-top: 1px solid pink; /*포스터/전시정보 위에 핑크색 줄 인데, 맘에 안드시면 말씀해주셔요*/
       	
@@ -190,6 +204,8 @@
     
        /*캐러셀 이미지*/
       #potos{
+      	
+      	
          text-align: center;
          margin: 40px 0;
          padding: 15px;
@@ -201,6 +217,14 @@
     	align-content: center;
     	
     }
+    .navigation{
+    
+    	text-align: left;
+    
+    }
+    
+    
+    
         
    </style>
 
@@ -336,7 +360,7 @@
   	%>
   
   
-   <section>
+   <section class="posterinfosection">
    
    <div class="posterinfo">
   	
@@ -366,7 +390,7 @@
 			          	<tr>
 			          		<td class="sebujungbo"> Place  </td>
 			          		<td>&nbsp</td>
-			          		<td class="jangso">서울 국립중앙박물관</td>
+			          		<td class="jangso"><%=exhibition.getExMap() %></td>
 			          		<td>&nbsp</td>
 			          		 
 			          	</tr>
@@ -380,7 +404,7 @@
 			          	<tr>
 			          		<td class="sebujungbo">Period </td>
 			          		<td>&nbsp</td>
-			          		<td class="gigan"> <%=exhibition.getExStart() %>~<%=exhibition.getExStart() %></td>
+			          		<td class="gigan"> <%=exhibition.getExStart() %>~<%=exhibition.getExEnd() %></td>
 			          		<td>&nbsp</td>
 			          	</tr>
 			          	
@@ -505,7 +529,7 @@
   
   
   
-   <section>
+   <section class="contentCarousel">
    
     			
     <br><br><br><br>
@@ -524,7 +548,7 @@
       </div>
          
          
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" >
             
             <ol class="carousel-indicators">
             
@@ -563,7 +587,7 @@
    </section>
    
       
-    <section> <%//리뷰 게시판 여기 쓰시면 돼요%>
+    <section class="review"> <%//리뷰 게시판 여기 쓰시면 돼요%>
     
     	
     
@@ -580,17 +604,21 @@
     	<br><br><br><br><br>
     	
     	
-    	<h1>오시는 길</h1>
+    	<h1 class="navigation">오시는 길</h1>
     	
     	<br><br><br><br><br><br>
     	<div class="map">
     		
-    		<img alt="" src="<%=exhibition.getExMap() %>" width="500" height="400">
     		
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.97231713436!2d126.9318055991481!3d37.555715994886924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c989510707201%3A0x825b9570d1bd0b8!2z7Iug7LSMIOuplOqwgOyKpO2EsOuUlO2VmeybkA!5e0!3m2!1sko!2skr!4v1618910494601!5m2!1sko!2skr" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     	</div>
     
     
     </section>
+      
+    <br><br><br><br><br>  
+      
+     
       
    
 </body>
