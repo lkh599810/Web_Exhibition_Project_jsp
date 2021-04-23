@@ -162,7 +162,7 @@
     	
     }
     
-      .yeme{
+      .payment{
       
          background-color: white;
          color: black;
@@ -175,7 +175,7 @@
          margin:50px 0px 50px 30px; 
       }
       
-      .yeme:hover {
+      .payment:hover {
       
 	      color: olive;
 	      background-color: aqua;
@@ -232,7 +232,7 @@
 					
 					
 		
-					function yeme_event(userID){
+					function payment_event(userID){
 						
 						
 					if (confirm("예매 하시겠습니까?")){  
@@ -245,7 +245,7 @@
 							
 						}else if(userID!="null"){
 							
-							document.yemego.submit();
+							document.paymentgo.submit();
 							
 							
 							
@@ -378,7 +378,7 @@
 	        
 	          
 			
-				<form method="post" name="yemego" action="yemefinish.jsp">
+				<form method="post" name="paymentgo" action="payment.jsp">
 			         
 			         
 			          <table> <%//전시회 정보 테이블 %>
@@ -492,8 +492,8 @@
 				      			
 				      			
 				          		<td>
-								
-				          	 		<input type="button" class="yeme" value="예매하기" onclick="yeme_event('<%=userID %>')">
+									
+				          	 		<input type="button" class="payment" value="예매하기" onclick="payment_event('<%=userID %>')">
 				          	 		
 				          		</td>
 			          		 
