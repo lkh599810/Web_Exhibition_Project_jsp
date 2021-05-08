@@ -1,5 +1,9 @@
-<%@page import="DTO.Exhibition"%>
-<%@page import="DAO.ExhibitionDAO"%>
+<%@page import="single.Pay"%>
+<%@page import="dto.Point"%>
+<%@page import="dao.PointDAO"%>
+<%@page import="java.io.PrintWriter"%>
+<%@page import="dto.Exhibition"%>
+<%@page import="dao.ExhibitionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,7 +46,6 @@
       	text-align: center;
       	font-size: 45px;
       	margin: 100px auto;
-
       }
       
        .ticketing{
@@ -78,7 +81,7 @@
        		
          
       }
-      
+  
       td{         
       
       	font-size: 20px;          
@@ -118,7 +121,12 @@
 	      background-color: silver;
       }
    	
-   		
+   		.alertPoint{
+   			font-size : 12px; 
+   			text-align : left;
+   			padding-left: 12px;
+   			color: red;
+   		}
    	
    	
     
@@ -128,6 +136,20 @@
    
    
    <script type="text/javascript">
+	
+	function pointCheck(point) {
+		//point 숫자만 받게..
+
+		if(!yemego.point.value || yemego.point.value < 0){
+			alert("포인트칸을 확인해주세요");
+			return false;
+		}
+		if( point ){
+			location.href = 'pointCheckAction.jsp?point='+point;
+		}
+		
+	}
+	
    
    function yeme_event(userID){
 		
@@ -157,7 +179,16 @@
 		}
 		
 		}//예매 function 끝
-   
+		
+		function checkForm() {
+			if(yemego.point_result.value == 1 &&yemego.point_result.value == -2){
+				return true;
+			}
+			else{
+				alert("포인트 사용을 확인해주세요");
+				return false;
+			}
+		}
    </script>
    
 </head>
@@ -168,16 +199,35 @@
   
   <% 
   	request.setCharacterEncoding("UTF-8");
-	
-	int yemesu=Integer.parseInt(request.getParameter("yemesu"));
-  
-  	int exNum=Integer.parseInt(request.getParameter("exNum"));
+ 
+ 	Pay pay = Pay.getInstance();
+ 		
+  	 if(request.getParameter("exNum")!=null && request.getParameter("yemesu")!=null)
+  	{
+  		pay.exhibitionNum= Integer.valueOf(request.getParameter("exNum")); //전시회번호
+  		pay.bookCount= Integer.valueOf(request.getParameter("yemesu")); //예매수
+  	} 
+  	int exNum = pay.exhibitionNum; //전시회번호
+	int yemesu = pay.bookCount; //예매수
   	
   	
   	ExhibitionDAO dao=ExhibitionDAO.getinstance();
   	
-  	Exhibition exhibition= dao.getexhibition(exNum);
-
+  	Exhibition exhibition= dao.getexhibition(Pay.getInstance().exhibitionNum);
+  	
+  	int price = pay.price = exhibition.getExPrice()*yemesu;
+  	
+  	//포인트 써도되는지 확인
+	int check = -2; //초기값
+	if(request.getParameter("check")!=null){ 
+		check= Integer.valueOf(request.getParameter("check"));
+	}
+	//써도 되면 포인트값
+	int usePoint = 0; //초기값 
+	if(request.getParameter("usepoint")!=null){ 
+		usePoint= Integer.valueOf(request.getParameter("usepoint"));
+	}
+	
   	%>
   
    
@@ -189,7 +239,23 @@
    
    </section>
   
+  	<%
+  	if(userID==null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인이 필요한 서비스입니다.')");
+		script.println("location.href = 'login.jsp'");
+		script.println("</script>");
+	}
+
+  	PointDAO pointdao = PointDAO.getInstance();
+    
+  	int point = pointdao.getuserPoint(userID); //보유포인트
   	
+	
+
+	
+  	%>
 
    <section>
  
@@ -200,10 +266,10 @@
     
 	      <div class="container">
 	      
-	     <form method="post" name="yemego" action="yemefinish.jsp"> 
+	     <form method="post" id="yemego" action="yemefinish.jsp" onsubmit="return checkForm()"> 
 	    	
 	    		<input type="hidden" value="yemego" name="yemego">
-			    <input type="hidden" value="<%=exhibition.getExNum()%>" name="exNum">
+			    <input type="hidden" value="<%=exNum%>" name="exNum">
 			    <input type="hidden" value="<%=yemesu %>" name="yemesu">
 	    	
 	    	<table class="yemejungbo">
@@ -224,26 +290,36 @@
 	    		</tr>
 	    		
 	    		<tr>
-		    		<td> 전시회 가격 </td>
-		    		<td class="price">&#8361;<%=exhibition.getExPrice()%></td>
+		    		<td> 총 금액 </td>
+		    		<td class="price">&#8361;<%=price%></td>
 	    		</tr>
 	    	
+	    		<tr>
+	    			<td>보유 포인트</td>
+	    			<td> <label style="color: red;"><%=point %></label> </td>
+	    		</tr>
+	    		
 	    		
 	    		<tr>
-	    		 
-	    			<td>포인트</td>
-	    			
+	    			<td>사용 포인트</td>	
 	    			<td>
-	    				<input type="text" placeholder="포인트 사용" name="point" style="background-color: white; color: black; width: 100px; font-size: 15px;"> 
-	    				<input class="usepoint" value="입력" type="button" name="입력" style="margin-left:20px; background-color: white; color: black; border-radius: 20%; font-size: 15px; ">
-	    				<input class="allpoint" value="전액사용" type="button" name="전액사용" style="background-color: white; color: black; border-radius: 20%; font-size: 15px;  ">
+	    			<%
+	    			if(check==1){%>
+	    				<input type="number" min='0' placeholder="포인트 사용" value="<%=usePoint %>" id="point" name="point" style="padding : 5px; background-color: white; color: black; width: 130px; font-size: 15px;"> 
+	    			<%} else{%>
+	    				<input type="number" min='0' name="point" style="padding : 5px; background-color: white; color: black; width: 130px; font-size: 15px;"> 
+	    			<%} %>
+	    				<input type="hidden" name="point_result" value="<%=check%>">
+	    				<button type="button" onclick="pointCheck(this.form.point.value)" style=" width: 40px; margin-left:20px; background-color: white; color: black; border-radius: 20%; font-size: 15px; "> 입력 </button>
+	    				<br>
 	    			</td>
-	    			
 	    		</tr>
 	    		
 	    		<tr>
-	    			<td>현재 포인트</td>
-	    			<td> <label style="color: red;">현재 포인트</label> </td>
+	    			<td></td>
+	    			<%if(check==0){%>
+	    				<td class="alertPoint">보유 포인트 이상 사용은 불가능합니다.</td>
+	    			<%}%>
 	    		</tr>
 	    		
 	    	
@@ -253,14 +329,14 @@
 	    	
 		    	<div class="allprice">
 			    	<label id="label1">
-			    		총 가격 : 
+			    		결제 금액 : 
 			    	</label>
 			    	
 			    	<label id="label2">
-			    		 &#8361;<%=exhibition.getExPrice()*yemesu /* 여기에 - 포인트 해주시면 됩니다. */ %> 
+			    		 &#8361;<%=price-usePoint /* 여기에 - 포인트 해주시면 됩니다. */ %> 
 			    	</label>
 		    	</div>
-	    	
+	    		
 	    	
 	      </div>
 	      

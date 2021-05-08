@@ -1,5 +1,5 @@
-<%@page import="DTO.Exhibition"%>
-<%@page import="DAO.ExhibitionDAO"%>
+<%@page import="dto.Exhibition"%>
+<%@page import="dao.ExhibitionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,7 +42,6 @@
       	text-align: center;
       	font-size: 45px;
       	margin: 100px auto;
-
       }
       
        .ticketing{
@@ -141,7 +140,6 @@
   	ExhibitionDAO dao=ExhibitionDAO.getinstance();
   	
   	Exhibition exhibition= dao.getexhibition(exNum);
-
   	%>
   
    
@@ -215,7 +213,7 @@
 	      
 	      <%
 	      
-	      	int exSold =exhibition.getExSold() + yemesu;
+	      	int exSold = exhibition.getExSold() + yemesu;
 	      	
 	      	exhibition.setExSold(exSold);	 //핵심
 	      

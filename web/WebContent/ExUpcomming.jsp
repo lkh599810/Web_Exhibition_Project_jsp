@@ -98,7 +98,7 @@
 						int exStart = Integer.valueOf(year1+month1+day1);  //전시회 시작기간
 					
 						if(exStart>today){ // 진행 예정%>
-								<li>
+			   <li>
 					<a href="sangsebogi.jsp?exNum=<%=exhibition.getExNum()%>">
 							<figure> <img alt="" src="images/<%=exhibition.getExPost() %>" > </figure>
 						<div id="moreEx-item">

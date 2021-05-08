@@ -1,7 +1,8 @@
-<%@page import="DTO.Like"%>
-<%@page import="DAO.LikeDAO"%>
-<%@page import="DAO.ExhibitionDAO"%>
-<%@page import="DTO.Exhibition"%>
+<%@page import="dao.ExhibitionDAO"%>
+<%@page import="dto.Like"%>
+<%@page import="dao.LikeDAO"%>
+<%@page import="dao.ExhibitionDAO"%>
+<%@page import="dto.Exhibition"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -69,7 +70,6 @@
          padding: 15px;
          width: 400px;
         
-
       }
       
       /*정보*/
@@ -341,19 +341,16 @@
   	
   	Exhibition exhibition= dao.getexhibition(exNum);
  	
-  	String likeUserID=(String)session.getAttribute("userID"); //세션 유저아이디를 likeUserID에 대입. 여기의 String likeUserID는 db의 like테이블의 특정 행의  likeUserID가 아니다.
-
-  	int likeExNum=Integer.parseInt(request.getParameter("exNum")); //exNum을 likeExnum에 대입.
+  	String likeUserID=userID; //세션 유저아이디를 likeUserID에 대입. 여기의 String likeUserID는 db의 like테이블의 특정 행의  likeUserID가 아니다.
+  	int likeExNum=exNum; //exNum을 likeExnum에 대입.
   	
   	
   	Like like = new Like();
   	
-
 	  	LikeDAO likedao=LikeDAO.getinstance();
 		  	
 	  	like=likedao.getlike(likeUserID, likeExNum); //여기가 문젠가? DAO의 getlike rs.next rs가 없을경우 해줘야하는듯
 	  	
-
   	
   //	like테이블에 아무것도 없을때는?	 
   	
